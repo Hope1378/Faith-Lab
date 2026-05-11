@@ -1,0 +1,18 @@
+﻿.button-primary {
+  transform: translateZ(0);
+}
+
+.button-primary:hover {
+  filter: brightness(1.03);
+}
+
+.sermon-card,
+.event-card,
+.gallery-item,
+.modal-panel {
+  will-change: transform;
+}
+
+.sermon-grid {
+  align-items: stretch !important;
+}

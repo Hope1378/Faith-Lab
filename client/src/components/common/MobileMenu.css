@@ -1,0 +1,22 @@
+/* ── Mobile Menu Panel ──────────────────────────────── */
+
+/* Subtle scrollbar inside the links list */
+.mobile-menu-panel-links::-webkit-scrollbar {
+  width: 2px;
+}
+.mobile-menu-panel-links::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mobile-menu-panel-links::-webkit-scrollbar-thumb {
+  background: rgba(198, 154, 58, 0.25);
+  border-radius: 999px;
+}
+
+/* White/4 helper that Tailwind JIT may not generate */
+.hover\:bg-white\/4:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* border-white/6 and border-white/8 helpers */
+.border-white\/6  { border-color: rgba(255, 255, 255, 0.06); }
+.border-white\/8  { border-color: rgba(255, 255, 255, 0.08); }

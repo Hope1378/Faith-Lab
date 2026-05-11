@@ -1,0 +1,21 @@
+{
+  "short_name": "FaithFamily",
+  "name": "Faith Family Church Kidiki",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#140f25",
+  "background_color": "#f6f0ff"
+}

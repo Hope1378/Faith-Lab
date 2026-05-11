@@ -1,0 +1,111 @@
+:root {
+  --color-espresso: #16120e;
+  --color-mocha: #261f18;
+  --color-sand: #fbf5eb;
+  --color-gold: #d8b26e;
+  --color-bronze: #9c7a46;
+  --color-cloud: #0d0a08;
+  --color-ink: #fbf5eb;
+  --color-muted: rgba(251, 245, 235, 0.76);
+  --color-heading: #2f2a24;
+  --color-body: rgba(47, 42, 36, 0.82);
+  --color-soft: rgba(251, 245, 235, 0.5);
+  --color-accent: #d8b26e;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans: 'Manrope', sans-serif;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.5rem;
+  --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.4);
+  --shadow-glass: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-heading);
+  text-rendering: optimizeLegibility;
+}
+
+.glass-panel {
+  color: var(--color-ink);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  
+  /* Optimize for mobile — high blur values are expensive to paint */
+  @media (max-width: 640px) {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  background: linear-gradient(135deg, rgba(38, 31, 24, 0.72), rgba(22, 18, 14, 0.88));
+  border: 1px solid rgba(216, 178, 110, 0.16);
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-dark {
+  color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  
+  @media (max-width: 640px) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  background: linear-gradient(145deg, rgba(56, 45, 34, 0.82), rgba(28, 22, 16, 0.95));
+  border: 1px solid rgba(216, 178, 110, 0.22);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel h1:not(.card-gold-title),
+.glass-panel h2:not(.card-gold-title),
+.glass-panel h3:not(.card-gold-title),
+.glass-panel h4:not(.card-gold-title),
+.glass-panel-dark h1:not(.card-gold-title),
+.glass-panel-dark h2:not(.card-gold-title),
+.glass-panel-dark h3:not(.card-gold-title),
+.glass-panel-dark h4:not(.card-gold-title) {
+  color: inherit;
+}
+
+.card-gold-title {
+  color: #f1cf78 !important;
+  text-shadow: 0 1px 6px rgba(20, 12, 4, 0.45), 0 0 16px rgba(212, 175, 95, 0.18) !important;
+}
+
+.page-shell {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+.page-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(216, 178, 110, 0.18), transparent 45%),
+    radial-gradient(circle at 86% 14%, rgba(156, 122, 70, 0.12), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(216, 178, 110, 0.15), transparent 45%),
+    linear-gradient(180deg, var(--color-sand) 0%, rgba(245, 235, 220, 0.85) 50%, rgba(230, 215, 195, 0.75) 100%);
+}
+
+.page-shell::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(216, 178, 110, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 178, 110, 0.16) 1px, transparent 1px);
+  background-size: 128px 128px;
+  mask-image: radial-gradient(circle at center, black 34%, transparent 90%);
+}
+
+::selection {
+  background: rgba(216, 178, 110, 0.32);
+  color: #ffffff;
+}

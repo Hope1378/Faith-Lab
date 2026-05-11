@@ -1,0 +1,44 @@
+﻿.ministries-home__card {
+  position: relative;
+  overflow: hidden;
+  min-height: 18rem;
+}
+
+.ministries-home__card::after {
+  content: '';
+  position: absolute;
+  inset: auto -12% -24% auto;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(214, 189, 144, 0.2), transparent 72%);
+}
+
+.ministries-home__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.ministries-home__meta span,
+.ministries-home__meta strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.ministries-home__meta span {
+  background: linear-gradient(180deg, rgba(124, 103, 72, 0.18), rgba(162, 133, 92, 0.12));
+  border: 1px solid rgba(163, 144, 101, 0.14);
+  color: rgba(47, 42, 36, 0.82);
+}
+
+.ministries-home__meta strong {
+  background: linear-gradient(180deg, rgba(124, 103, 72, 0.88), rgba(162, 133, 92, 0.72));
+  border: 1px solid rgba(255, 244, 219, 0.14);
+  color: rgba(255, 248, 236, 0.94);
+}

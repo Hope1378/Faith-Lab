@@ -1,0 +1,35 @@
+.donation-home__panel {
+  position: relative;
+  background: linear-gradient(180deg, #fbf5eb 0%, #ecdcb8 100%);
+  border: 1px solid rgba(216, 178, 110, 0.2);
+  box-shadow: 0 24px 64px rgba(72, 51, 22, 0.12);
+}
+
+.donation-home__panel::after {
+  content: '';
+  position: absolute;
+  top: -4rem;
+  right: -3rem;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 226, 170, 0.14), transparent 68%);
+}
+
+.donation-home__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.donation-home__primary,
+.donation-home__chip {
+  min-height: 3.2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.donation-home__chip {
+  background: linear-gradient(180deg, rgba(112, 91, 62, 0.94), rgba(146, 119, 82, 0.84));
+  border: 1px solid rgba(255, 244, 219, 0.18);
+  color: rgba(255, 250, 242, 0.96);
+}

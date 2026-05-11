@@ -1,0 +1,203 @@
+.admin-page {
+  position: relative;
+}
+
+.admin-page::before,
+.admin-auth-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(198, 154, 58, 0.15), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(72, 54, 23, 0.2), transparent 40%),
+    linear-gradient(180deg, #120d08 0%, #1a140d 100%);
+  z-index: -1;
+}
+
+.admin-hero,
+.admin-auth-card,
+.admin-panel {
+  background: rgba(30, 24, 18, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  /* Critical visibility overrides for dark theme */
+  --heading-color: #ffffff;
+  --prose-color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+}
+
+.admin-field {
+  display: grid;
+  gap: 0.65rem;
+  color: rgba(255, 248, 236, 0.9);
+  font-size: 0.95rem;
+}
+
+.admin-field span {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #c69a3a;
+}
+
+.admin-field input,
+.admin-field textarea,
+.admin-field select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.95rem 1rem;
+  color: #ffffff;
+  transition: all 180ms ease;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus,
+.admin-field select:focus {
+  outline: none;
+  border-color: rgba(231, 193, 121, 0.9);
+  background: rgba(255, 248, 236, 0.12);
+  transform: translateY(-1px);
+}
+
+.admin-field--light {
+  color: rgba(40, 30, 17, 0.92);
+}
+
+.admin-field--light span {
+  color: rgba(69, 53, 29, 0.7);
+}
+
+.admin-field--light input,
+.admin-field--light textarea,
+.admin-field--light select {
+  background: rgba(53, 35, 12, 0.04);
+  border-color: rgba(53, 35, 12, 0.1);
+  color: #2d2315;
+}
+
+.admin-field--light input::placeholder,
+.admin-field--light textarea::placeholder {
+  color: rgba(45, 35, 21, 0.42);
+}
+
+.admin-list {
+  max-height: 34rem;
+  overflow: auto;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: rgba(39, 29, 15, 0.1);
+  color: #2f2417;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-chip--danger {
+  background: rgba(189, 83, 83, 0.12);
+  color: #8d3030;
+}
+
+@media (max-width: 768px) {
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.admin-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 3.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.95rem 1rem;
+  background: rgba(255, 250, 240, 0.08);
+  color: rgba(255, 248, 236, 0.92);
+}
+
+.admin-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #d4ab63;
+}
+
+.admin-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  font-weight: 700;
+  transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
+  cursor: pointer;
+}
+
+.admin-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.admin-button:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
+.admin-button--primary {
+  background: linear-gradient(135deg, #f0cc8f, #d0a154);
+  color: #2a1e10;
+}
+
+.admin-button--ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff8ec;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-banner {
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+}
+
+.admin-banner--success {
+  background: rgba(88, 170, 118, 0.18);
+  color: #dff5e6;
+  border: 1px solid rgba(88, 170, 118, 0.34);
+}
+
+.admin-banner--error {
+  background: rgba(189, 83, 83, 0.2);
+  color: #ffe1dd;
+  border: 1px solid rgba(189, 83, 83, 0.34);
+}
+
+.admin-banner--muted {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 248, 236, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,78 @@
+@import './styles/tailwind.css';
+@import './styles/variables.css';
+@import './styles/animations.css';
+@import './styles/typography.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  scroll-padding-top: calc(var(--navbar-offset, 7.5rem) + 0.25rem);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.site-main {
+  position: relative;
+  z-index: 0;
+  padding-top: var(--navbar-offset, 8rem);
+}
+
+.site-main--home {
+  padding-top: 0;
+}
+
+.site-main--inner {
+  padding-top: var(--navbar-offset, 6.5rem);
+}
+
+@media (max-width: 767px) {
+  .site-main--inner {
+    padding-top: calc(var(--navbar-offset, 5.5rem) + 3.5rem);
+  }
+}
+
+.site-main section {
+  scroll-margin-top: calc(var(--navbar-offset, 7.5rem) + 0.75rem);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Hide React error overlay */
+iframe[src="*react-error-overlay*"] {
+  display: none !important;
+}
+
+body > div > div > div:last-child {
+  display: none !important;
+}
+
+/* Ensure inputs are interactive */
+input, select, textarea, button {
+  pointer-events: auto !important;
+}
