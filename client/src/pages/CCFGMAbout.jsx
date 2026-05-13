@@ -18,7 +18,7 @@ const CCFGMAbout = () => {
   return (
     <div className="about-page !bg-[#0a0806]" style={{backgroundColor: '#0a0806'}}>
       {/* Ultra-Premium Cinematic Hero */}
-      <section className="premium-hero-about relative isolate min-h-[450px] sm:h-[80vh] sm:min-h-[600px] flex items-center justify-center bg-black overflow-hidden">
+      <section className="premium-hero-about relative isolate min-h-[580px] sm:h-[80vh] sm:min-h-[600px] flex items-center justify-center bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/ch1.jpeg" 
@@ -44,7 +44,7 @@ const CCFGMAbout = () => {
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#c69a3a]/5 rounded-full blur-[100px]" />
 
             {/* Premium Eyebrow */}
-            <div className="flex items-center justify-center gap-4 mb-5 sm:mb-10">
+            <div className="flex items-center justify-center gap-4 mb-2 sm:mb-10">
               <span className="h-px w-10 bg-[#f1cf78]/30" />
               <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[#f1cf78] tracking-[0.45em] uppercase text-[0.6rem] sm:text-[0.7rem] gold-text-shimmer">
                 The Eternal Foundation
@@ -52,23 +52,23 @@ const CCFGMAbout = () => {
               <span className="h-px w-10 bg-[#f1cf78]/30" />
             </div>
 
-            <h1 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:300}} className="text-[1.8rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[7.5rem] mb-4 sm:mb-8 lg:mb-12 leading-[0.88] tracking-tighter text-white">
+            <h1 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:300}} className="text-[1.8rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[7.5rem] mb-2 sm:mb-8 lg:mb-12 leading-[0.88] tracking-tighter text-white">
               Built on the <br />
               <span className="italic text-[#f1cf78] font-medium">Sacred Rock.</span>
             </h1>
             
-            <div className="mx-auto mb-5 sm:mb-12 h-px w-32 bg-gradient-to-r from-transparent via-[#c69a3a] to-transparent" />
+            <div className="mx-auto mb-3 sm:mb-12 h-px w-32 bg-gradient-to-r from-transparent via-[#c69a3a] to-transparent" />
             
-            <p style={{fontFamily:"'Cormorant Garamond',serif"}} className="text-sm sm:text-xl md:text-2xl lg:text-4xl text-white/60 leading-relaxed font-light max-w-4xl mx-auto italic">
+            <p style={{fontFamily:"'Cormorant Garamond',serif"}} className="text-sm sm:text-xl md:text-2xl lg:text-4xl text-white/60 leading-relaxed font-light max-w-4xl mx-auto italic mb-6 sm:mb-12">
               "{ccfgmSiteConfig.tagline}"
             </p>
           </motion.div>
         </div>
         
         {/* Scroll Indicator */}
-        <div className="hidden sm:flex absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40 z-20">
+        <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 flex-col items-center gap-1 sm:gap-4 opacity-40 z-20">
           <span style={{letterSpacing:'0.6em'}} className="text-[0.45rem] sm:text-[0.55rem] uppercase text-white font-black">Begin The Journey</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-white via-white/40 to-transparent" />
+          <div className="w-[1px] h-4 sm:h-16 bg-gradient-to-b from-white via-white/40 to-transparent" />
         </div>
       </section>
 
