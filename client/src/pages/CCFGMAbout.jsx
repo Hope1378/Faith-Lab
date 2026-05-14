@@ -134,88 +134,98 @@ const CCFGMAbout = () => {
               </div>
             </section>
 
-            {/* Part 2: Captured Glory (Restored & Optimized) */}
-            <section className="gallery-section relative bg-midnight py-8 sm:py-16 lg:py-32 px-4 sm:px-12 rounded-[2rem] sm:rounded-[5rem] overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 opacity-[0.05]" style={{backgroundImage:'radial-gradient(circle at 2px 2px, #f1cf78 1px, transparent 0)', backgroundSize:'60px 60px'}} />
+            {/* Part 2: Captured Glory (Premium Redesign) */}
+            <section className="gallery-section relative bg-[#0a0806] py-12 sm:py-20 lg:py-32 px-4 sm:px-6 rounded-[2rem] sm:rounded-[4rem] overflow-hidden shadow-2xl border border-white/5">
+              {/* Atmospheric Background Element */}
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{backgroundImage:'radial-gradient(circle at 2px 2px, #f1cf78 1px, transparent 0)', backgroundSize:'40px 40px'}} />
               
-              <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-8 sm:mb-16 lg:mb-24">
-                   <h3 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:700}} className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl text-white tracking-tighter leading-none mb-4 sm:mb-6">
+              <div className="max-w-3xl mx-auto relative z-10">
+                {/* Section Header */}
+                <div className="text-center mb-10 sm:mb-20">
+                   <motion.h3 
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:700}} 
+                     className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter leading-none mb-6"
+                   >
                      Captured <span className="italic text-[#f1cf78]">Glory.</span>
-                   </h3>
+                   </motion.h3>
                    <div className="flex items-center justify-center gap-4">
-                      <span className="h-px w-12 bg-white/10" />
-                      <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-white/40 text-[0.65rem] uppercase tracking-[0.5em]">The Visual Archive</p>
-                      <span className="h-px w-12 bg-white/10" />
+                      <span className="h-px w-8 sm:w-12 bg-[#f1cf78]/20" />
+                      <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[#f1cf78]/40 text-[0.6rem] sm:text-[0.7rem] uppercase tracking-[0.5em]">The Visual Archive</p>
+                      <span className="h-px w-8 sm:w-12 bg-[#f1cf78]/20" />
                    </div>
                 </div>
 
-                <div className="grid lg:grid-cols-[1fr_1fr] gap-6 lg:gap-12 items-start">
-                  {/* Main Gallery View - NO CROP */}
-                  <div className="relative group overflow-hidden rounded-[1.5rem] lg:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.4)] bg-[#0a0806] border border-white/5 w-full">
+                {/* Main Cinematic Display */}
+                <div className="relative mb-8 sm:mb-20">
+                  <div className="relative min-h-[300px] sm:aspect-video w-full rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] border border-white/10 bg-black group">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeImage.src}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.02 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="w-full h-full flex items-center justify-center"
                       >
-                         <div className="relative w-full">
-                           <img 
-                             src={activeImage.src} 
-                             alt={activeImage.title} 
-                             className="w-full h-auto block brightness-[0.9] contrast-[1.1]"
-                           />
-                         </div>
-                         
-                         {/* Integrated Caption Row */}
-                         <div className="p-6 sm:p-10 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-                            {activeImage.title && (
-                              <div className="flex items-center gap-3 mb-2">
-                                <span className="h-px w-4 bg-[#f1cf78]/50" />
-                                <h4 style={{fontFamily:"'Cormorant Garamond',serif"}} className="text-xl sm:text-3xl lg:text-5xl text-white italic font-light">
-                                  {activeImage.title}
-                                </h4>
-                              </div>
-                            )}
-                            <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[#f1cf78]/70 text-[10px] sm:text-[0.7rem] uppercase tracking-[0.25em] font-black">
+                        {/* Dynamic Background Blur */}
+                        <img 
+                          src={activeImage.src} 
+                          alt="" 
+                          className="absolute inset-0 w-full h-full object-cover scale-110 blur-[40px] opacity-30 pointer-events-none" 
+                        />
+                        
+                        {/* Primary Image Display */}
+                        <img 
+                          src={activeImage.src} 
+                          alt={activeImage.title} 
+                          className="relative z-10 w-full h-auto max-h-[60vh] sm:max-h-full object-contain brightness-[0.95] contrast-[1.05]"
+                        />
+                        
+                        {/* Elite Caption Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-12 md:p-16 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20">
+                          <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.6 }}
+                          >
+                            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                              <span className="h-px w-4 sm:w-6 bg-[#f1cf78]" />
+                              <h4 style={{fontFamily:"'Cormorant Garamond',serif"}} className="text-xl sm:text-4xl md:text-5xl lg:text-6xl text-white italic font-light leading-tight">
+                                {activeImage.title}
+                              </h4>
+                            </div>
+                            <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[#f1cf78] text-[0.55rem] sm:text-[0.8rem] uppercase tracking-[0.2em] sm:tracking-[0.3em] font-black opacity-80 pl-6 sm:pl-9">
                               {activeImage.description}
                             </p>
-                         </div>
+                          </motion.div>
+                        </div>
                       </motion.div>
                     </AnimatePresence>
                   </div>
+                </div>
 
-                  {/* NO-CROP Thumbnails Grid */}
-                  <div className="flex flex-col gap-4 lg:gap-6">
-                    <div className="gallery-thumbnails grid grid-cols-2 gap-3 lg:gap-4">
-                      {galleryItems.slice(0, 4).map((item) => (
-                        <button
-                          key={item.src}
-                          onClick={() => setActiveImage(item)}
-                          className={`relative rounded-[0.8rem] sm:rounded-[1.2rem] overflow-hidden border-2 transition-all duration-500 bg-black/40 aspect-video
-                            ${activeImage.src === item.src ? 'border-[#c69a3a] shadow-lg opacity-100 grayscale-0' : 'border-transparent opacity-60 grayscale hover:grayscale-0 hover:opacity-100'}`}
-                        >
-                          <img src={item.src} alt="Thumbnail" className="w-full h-full object-cover" />
-                        </button>
-                      ))}
-                    </div>
-                    
-                    {/* Remaining thumbnails in a row */}
-                    <div className="gallery-scroll-row flex gap-3 lg:gap-4 overflow-x-auto scrollbar-hide">
-                      {galleryItems.slice(4).map((item) => (
-                        <button
-                          key={item.src}
-                          onClick={() => setActiveImage(item)}
-                          className={`relative flex-shrink-0 rounded-[0.8rem] sm:rounded-[1.2rem] overflow-hidden border-2 transition-all duration-500 bg-black/40 w-24 h-16 sm:w-32 sm:h-20 lg:w-28 lg:h-20
-                            ${activeImage.src === item.src ? 'border-[#c69a3a] shadow-lg opacity-100 grayscale-0' : 'border-transparent opacity-60 grayscale hover:grayscale-0 hover:opacity-100'}`}
-                        >
-                          <img src={item.src} alt="Thumbnail" className="w-full h-full object-cover" />
-                        </button>
-                      ))}
-                    </div>
+                {/* Unified Premium Thumbnails Row */}
+                <div className="relative px-1 sm:px-2">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2.5 sm:gap-4 rounded-[1.25rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.035] p-2.5 sm:p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+                    {galleryItems.map((item) => (
+                      <button
+                        key={item.src}
+                        onClick={() => setActiveImage(item)}
+                        className={`relative group rounded-md overflow-hidden border transition-all duration-500 w-full aspect-square bg-[#120d08] shadow-[0_12px_30px_rgba(0,0,0,0.35)]
+                          ${activeImage.src === item.src 
+                            ? 'border-[#f1cf78] scale-[1.03] shadow-[0_0_0_1px_rgba(241,207,120,0.45),0_18px_45px_rgba(241,207,120,0.18)] grayscale-0 opacity-100' 
+                            : 'border-white/10 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 hover:border-[#f1cf78]/40 hover:shadow-[0_18px_45px_rgba(0,0,0,0.45)]'}`}
+                      >
+                        <img src={item.src} alt="View" className="w-full h-full object-contain sm:object-cover p-1 sm:p-0 transition-transform duration-700 group-hover:scale-105" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-white/10 opacity-80" />
+                        {activeImage.src === item.src && (
+                          <div className="absolute inset-0 ring-2 ring-inset ring-[#f1cf78]/70" />
+                        )}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
