@@ -20,7 +20,7 @@ export default function GalleryMasonry({ items, onSelect }) {
                 style={item.position ? { objectPosition: item.position } : {}}
               />
               <div className="gallery-overlay">
-                <span className="text-white text-sm font-medium">View Project</span>
+                <span className="gallery-view-button">View Moment</span>
               </div>
             </div>
           ) : (

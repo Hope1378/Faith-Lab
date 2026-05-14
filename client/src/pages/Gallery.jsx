@@ -15,13 +15,27 @@ export default function Gallery() {
 
   return (
     <motion.section initial="hidden" animate="show" variants={staggerTight} className="gallery-page px-4 pb-20 pt-12 sm:px-6 sm:pt-20 lg:px-10 lg:pt-24">
-      <div className="mx-auto max-w-7xl space-y-8">
-        <motion.div variants={fadeScale} className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="eyebrow text-bronze">Captured Glory</p>
-            <h1 className="display-title text-3xl sm:text-4xl lg:text-5xl">A living archive of worship and mission.</h1>
+      <div className="mx-auto max-w-7xl space-y-8 lg:space-y-12">
+        <motion.div variants={fadeScale} className="gallery-hero-card">
+          <div className="gallery-hero-glow" />
+          <div className="gallery-hero-grid">
+            <div className="gallery-hero-copy">
+              <div className="gallery-kicker-row">
+                <span className="gallery-kicker-line" />
+                <p className="gallery-kicker">Captured Glory</p>
+              </div>
+              <h1 className="gallery-hero-title">Glory to <span>God's Work</span></h1>
+              <p className="gallery-hero-text">A living archive of worship, outreach, fellowship, and the everyday grace God is building in Kidiki Village.</p>
+            </div>
+            <div className="gallery-search-panel">
+              <label className="gallery-search-label" htmlFor="gallery-search">Search the archive</label>
+              <div className="gallery-search-shell">
+                <span className="gallery-search-icon">⌕</span>
+                <input id="gallery-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search gallery" className="gallery-search-input" />
+              </div>
+              <p className="gallery-search-count">{filteredItems.length} moments showing</p>
+            </div>
           </div>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search gallery" className="w-full rounded-full border border-midnight/10 bg-white px-5 py-3 outline-none lg:max-w-sm" />
         </motion.div>
         <motion.div variants={fadeScale}><GalleryFilter activeCategory={activeCategory} onChange={setActiveCategory} /></motion.div>
         <motion.div variants={fadeScale}><GalleryMasonry items={filteredItems} onSelect={setSelectedIndex} /></motion.div>
