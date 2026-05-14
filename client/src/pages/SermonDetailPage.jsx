@@ -58,9 +58,9 @@ export default function SermonDetailPage() {
                   {payload.sermon.category || 'Message'}
                 </p>
               </div>
-              <h1 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:700}} className="text-[3rem] sm:text-5xl lg:text-[5.5rem] leading-[0.95] tracking-tighter text-white">
-                {payload.sermon.title.split(' ').slice(0, -1).join(' ')} <br />
-                <span className="italic text-[#f1cf78] font-medium">{payload.sermon.title.split(' ').slice(-1)}</span>
+              <h1 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:700}} className="text-[2.65rem] sm:text-5xl lg:text-[5.5rem] leading-[0.95] tracking-tighter text-white whitespace-nowrap">
+                {payload.sermon.title.split(' ').slice(0, -1).join(' ')} <br className="hidden sm:block" />
+                <span className="italic text-[#f1cf78] font-medium sm:ml-0 ml-2">{payload.sermon.title.split(' ').slice(-1)}</span>
               </h1>
             </div>
             
@@ -94,7 +94,7 @@ export default function SermonDetailPage() {
         </div>
 
       {/* ── THE PROGRAM: EDITORIAL CONTENT ── */}
-         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+         <div className="max-w-7xl mx-auto px-3 sm:px-6 py-16 lg:py-20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                <div className="lg:col-span-8 space-y-20">
                   <div className="space-y-10">
@@ -176,20 +176,19 @@ export default function SermonDetailPage() {
             </div>
 
             <div className="mt-20 pt-20 border-t border-midnight/5">
-               <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-16">
+               <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6 sm:gap-8 mb-16 overflow-visible">
                   <div className="space-y-4 text-center sm:text-left">
                      <div className="flex items-center justify-center sm:justify-start gap-3">
                         <span className="h-px w-8 bg-[#c69a3a]" />
                         <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[#c69a3a] tracking-[0.4em] uppercase text-[0.65rem]">Keep Growing</p>
                      </div>
-                     <h2 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:600}} className="text-4xl sm:text-5xl text-midnight">Encore Selection</h2>
+                     <h2 style={{fontFamily:"'Cormorant Garamond',serif", fontWeight:600}} className="text-4xl sm:text-5xl text-midnight whitespace-nowrap">Encore Selection</h2>
                   </div>
-                  <Link to="/ministries/ffck/sermons" className="text-[0.7rem] font-black uppercase tracking-[0.2em] text-[#c69a3a] hover:opacity-70 transition-opacity">View Full Archive —</Link>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                   {payload.recent.map(s => (
-                    <SermonCard key={s.slug} sermon={s} />
+                    <SermonCard key={s.slug} sermon={s} singleLineFooter compactFooter />
                   ))}
                </div>
             </div>
