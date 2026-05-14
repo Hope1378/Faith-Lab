@@ -89,13 +89,13 @@ export default function About() {
           whileInView="show" 
           viewport={{ once: true }}
           variants={fadeScale}
-          className="about-identity-card rounded-[3rem] p-8 sm:p-16 shadow-2xl"
+          className="about-identity-card rounded-[3rem] bg-[#faf8f5] p-8 sm:p-16 shadow-2xl border border-midnight/5"
         >
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="eyebrow text-[#c69a3a] mb-4">Our Heart</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-8 tracking-tight drop-shadow-md">Formed by Presence, Sent with Love.</h2>
-              <p className="text-lg sm:text-xl text-white/90 leading-relaxed font-medium">
+              <h2 className="display-title text-4xl sm:text-5xl font-bold text-midnight mb-8 leading-tight tracking-tight">Formed by Presence, Sent with Love.</h2>
+              <p className="text-lg sm:text-xl text-midnight/70 leading-relaxed font-medium">
                 Faith Family Church Kidiki exists to exalt Jesus Christ, disciple believers, strengthen families, and serve the people of Kamuli with love, prayer, and biblical truth. We believe in a church that is not just a building, but a living body of Christ.
               </p>
             </div>
