@@ -7,7 +7,7 @@ export default function SermonGrid({ sermons, onOpenBible }) {
   return (
     <div className="sermon-grid grid items-stretch gap-8 justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-auto max-w-6xl">
       {safeSermons.map((sermon) => (
-        <SermonCard key={sermon.slug} sermon={sermon} onOpenBible={onOpenBible} />
+        <SermonCard key={sermon.slug} sermon={sermon} onOpenBible={onOpenBible} singleLineFooter />
       ))}
       {!safeSermons.length && (
         <div className="col-span-full py-20 text-center">

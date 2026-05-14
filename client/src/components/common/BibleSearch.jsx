@@ -20,7 +20,7 @@ export default function BibleSearch({ onSearch }) {
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Search scripture (e.g. John 3:16)..."
-        className="w-full rounded-full border border-[#c69a3a]/20 bg-white/60 px-14 py-4 lg:py-5 pr-24 text-sm font-bold text-midnight shadow-glow outline-none backdrop-blur-md transition-all focus:border-[#c69a3a] focus:bg-white focus:ring-4 focus:ring-[#c69a3a]/10 placeholder:text-midnight/30"
+        className="w-full h-14 lg:h-16 rounded-full border border-[#c69a3a]/20 bg-white/60 px-14 pr-24 text-sm font-bold leading-normal text-midnight shadow-glow outline-none backdrop-blur-md transition-all focus:border-[#c69a3a] focus:bg-white focus:ring-4 focus:ring-[#c69a3a]/10 placeholder:text-midnight/30"
       />
       <button 
         onClick={() => query.trim() && onSearch(query.trim())}

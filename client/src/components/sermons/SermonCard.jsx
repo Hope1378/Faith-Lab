@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { formatDate } from '../../utils/formatters'
 import './SermonCard.css'
 
-export default function SermonCard({ sermon, compact = false, onOpenBible }) {
+export default function SermonCard({ sermon, compact = false, onOpenBible, singleLineFooter = false }) {
   const [modalOpen, setModalOpen] = useState(false)
 
   // ESC key handler for modal
@@ -95,8 +95,8 @@ export default function SermonCard({ sermon, compact = false, onOpenBible }) {
 
         <div className="flex-1" />
 
-        <div className="flex items-center justify-between border-t border-midnight/5 pt-8">
-          <div className="flex items-center gap-3">
+        <div className={`flex items-center justify-between border-t border-midnight/5 pt-8 ${singleLineFooter ? 'gap-6' : ''}`}>
+          <div className={`flex items-center gap-3 ${singleLineFooter ? 'min-w-0 pr-2' : ''}`}>
              <div className="w-10 h-10 rounded-full bg-[#faf8f5] border border-midnight/5 flex items-center justify-center text-[#c69a3a]/40">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -105,9 +105,9 @@ export default function SermonCard({ sermon, compact = false, onOpenBible }) {
                    <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
              </div>
-             <div className="flex flex-col">
+             <div className={`flex flex-col ${singleLineFooter ? 'min-w-0' : ''}`}>
                <span className="text-[0.55rem] uppercase tracking-[0.2em] text-midnight/20 font-black mb-0.5">Released On</span>
-               <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className="text-[0.7rem] uppercase tracking-widest text-midnight/60">
+               <p style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}} className={`text-[0.7rem] uppercase tracking-widest text-midnight/60 ${singleLineFooter ? 'whitespace-nowrap' : ''}`}>
                  {formatDate(sermon.publishedAt)}
                </p>
              </div>
@@ -120,7 +120,7 @@ export default function SermonCard({ sermon, compact = false, onOpenBible }) {
               fontWeight:800,
               background: 'linear-gradient(135deg,#d4a93c 0%,#f1cf78 55%,#c69a3a 100%)',
             }}
-            className="group/btn relative flex items-center gap-4 px-8 py-4 rounded-full text-[10px] uppercase tracking-[0.2em] text-midnight shadow-[0_20px_40px_rgba(198,154,58,0.25)] hover:shadow-[0_25px_55px_rgba(198,154,58,0.45)] transition-all transform hover:-translate-y-1 overflow-hidden z-40"
+            className={`group/btn relative flex items-center py-4 rounded-full text-[10px] uppercase tracking-[0.2em] text-midnight shadow-[0_20px_40px_rgba(198,154,58,0.25)] hover:shadow-[0_25px_55px_rgba(198,154,58,0.45)] transition-all transform hover:-translate-y-1 overflow-hidden z-40 ${singleLineFooter ? 'gap-3 px-6 flex-shrink-0 whitespace-nowrap' : 'gap-4 px-8'}`}
           >
             <span className="relative z-10">Watch Now</span>
             <svg className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">

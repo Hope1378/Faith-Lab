@@ -24,7 +24,7 @@ export default function LatestSermons() {
         <motion.div variants={staggerTight} className="grid gap-6 lg:grid-cols-3">
           {sermons.slice(0, 3).map((sermon) => (
             <motion.div key={sermon.slug} variants={fadeScale} className="h-full">
-              <SermonCard sermon={sermon} />
+              <SermonCard sermon={sermon} singleLineFooter />
             </motion.div>
           ))}
         </motion.div>
