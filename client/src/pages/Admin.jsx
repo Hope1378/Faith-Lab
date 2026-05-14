@@ -273,7 +273,7 @@ export default function Admin() {
 
   if (loading && !data) {
     return (
-      <section className="px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:px-10">
+      <section className="admin-page px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:px-10">
         <div className="mx-auto max-w-7xl rounded-[2rem] bg-white/80 p-10 shadow-glow">
           <p className="eyebrow text-bronze">Admin Dashboard</p>
           <h1 className="display-title mt-3 text-4xl">Loading secure workspace...</h1>

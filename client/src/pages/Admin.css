@@ -1,5 +1,8 @@
 .admin-page {
   position: relative;
+  overflow-x: hidden;
+  background: #fcf8f1;
+  color: #0e0c09;
 }
 
 .admin-page::before,
@@ -9,38 +12,111 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at top left, rgba(198, 154, 58, 0.15), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(72, 54, 23, 0.2), transparent 40%),
-    linear-gradient(180deg, #120d08 0%, #1a140d 100%);
+    radial-gradient(circle at top left, rgba(198, 154, 58, 0.16), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(191, 195, 164, 0.14), transparent 34%),
+    linear-gradient(180deg, #fcf8f1 0%, #f8f1e4 100%);
   z-index: -1;
 }
 
 .admin-hero,
 .admin-auth-card,
 .admin-panel {
-  background: rgba(30, 24, 18, 0.95);
+  position: relative;
+  overflow: hidden;
+  background: #0e0c09;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  
-  /* Critical visibility overrides for dark theme */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 45px 110px rgba(10, 8, 6, 0.22);
   --heading-color: #ffffff;
   --prose-color: rgba(255, 255, 255, 0.9);
   color: #ffffff;
+}
+
+.admin-hero::before,
+.admin-auth-card::before,
+.admin-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.35rem;
+  background: linear-gradient(90deg, transparent, #c69a3a, #f1cf78, transparent);
+}
+
+.admin-hero::after,
+.admin-auth-card::after,
+.admin-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(198, 154, 58, 0.16), transparent 28%),
+    radial-gradient(circle at 84% 16%, rgba(198, 154, 58, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(38, 31, 24, 0.94), rgba(22, 18, 14, 0.96));
+}
+
+.admin-hero > *,
+.admin-auth-card > *,
+.admin-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.admin-page .display-title,
+.admin-auth-shell .display-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+
+.admin-page .eyebrow,
+.admin-auth-shell .eyebrow {
+  color: #c69a3a;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.admin-page .bg-white,
+.admin-page .bg-white\/80 {
+  border: 1px solid rgba(10, 8, 6, 0.04);
+  background: #ffffff !important;
+  box-shadow: 0 35px 90px rgba(10, 8, 6, 0.08);
+}
+
+.admin-page .bg-sand {
+  background: #faf8f5 !important;
+  border: 1px solid rgba(10, 8, 6, 0.04);
+}
+
+.admin-page h2,
+.admin-page .text-3xl.font-bold {
+  color: #0e0c09;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.admin-panel h2 {
+  color: #ffffff !important;
 }
 
 .admin-field {
   display: grid;
   gap: 0.65rem;
   color: rgba(255, 248, 236, 0.9);
+  font-family: 'Manrope', sans-serif;
   font-size: 0.95rem;
 }
 
 .admin-field span {
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 900;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   color: #c69a3a;
 }
 
@@ -48,12 +124,14 @@
 .admin-field textarea,
 .admin-field select {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.95rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1rem 1.15rem;
   color: #ffffff;
-  transition: all 180ms ease;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, transform 0.35s ease;
 }
 
 .admin-field input::placeholder,
@@ -65,8 +143,9 @@
 .admin-field textarea:focus,
 .admin-field select:focus {
   outline: none;
-  border-color: rgba(231, 193, 121, 0.9);
+  border-color: rgba(198, 154, 58, 0.72);
   background: rgba(255, 248, 236, 0.12);
+  box-shadow: 0 18px 40px rgba(198, 154, 58, 0.1);
   transform: translateY(-1px);
 }
 
@@ -81,9 +160,9 @@
 .admin-field--light input,
 .admin-field--light textarea,
 .admin-field--light select {
-  background: rgba(53, 35, 12, 0.04);
-  border-color: rgba(53, 35, 12, 0.1);
-  color: #2d2315;
+  background: #faf8f5;
+  border-color: rgba(10, 8, 6, 0.06);
+  color: #0e0c09;
 }
 
 .admin-field--light input::placeholder,
@@ -94,6 +173,7 @@
 .admin-list {
   max-height: 34rem;
   overflow: auto;
+  padding-right: 0.35rem;
 }
 
 .admin-item {
@@ -101,6 +181,14 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  border: 1px solid rgba(10, 8, 6, 0.04);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.admin-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(198, 154, 58, 0.18);
+  box-shadow: 0 22px 45px rgba(10, 8, 6, 0.08);
 }
 
 .admin-item__actions {
@@ -112,11 +200,21 @@
 .admin-chip {
   border: 0;
   border-radius: 999px;
-  padding: 0.7rem 1rem;
-  background: rgba(39, 29, 15, 0.1);
-  color: #2f2417;
-  font-weight: 700;
+  padding: 0.75rem 1.05rem;
+  background: rgba(198, 154, 58, 0.12);
+  color: #8a6421;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.admin-chip:hover {
+  transform: translateY(-2px);
+  background: rgba(198, 154, 58, 0.2);
 }
 
 .admin-chip--danger {
@@ -152,14 +250,18 @@
 .admin-button {
   border: 0;
   border-radius: 999px;
-  padding: 0.95rem 1.4rem;
-  font-weight: 700;
-  transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
+  padding: 1rem 1.55rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: transform 0.35s ease, opacity 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
   cursor: pointer;
 }
 
 .admin-button:hover:not(:disabled) {
-  transform: translateY(-1px);
+  transform: translateY(-3px);
 }
 
 .admin-button:disabled {
@@ -168,8 +270,9 @@
 }
 
 .admin-button--primary {
-  background: linear-gradient(135deg, #f0cc8f, #d0a154);
-  color: #2a1e10;
+  background: linear-gradient(135deg, #d4a93c 0%, #f1cf78 55%, #c69a3a 100%);
+  color: #0e0c09;
+  box-shadow: 0 22px 50px rgba(198, 154, 58, 0.28);
 }
 
 .admin-button--ghost {
