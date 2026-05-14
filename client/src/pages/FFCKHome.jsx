@@ -330,31 +330,26 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.15 }}
-                  className="group relative flex flex-col"
+                  className="group relative flex flex-col rounded-[2rem] overflow-hidden bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.16)] border border-slate-100"
                 >
-                  <div className="relative rounded-[2.5rem] overflow-hidden mb-8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-100 h-auto bg-midnight">
-                    <img src={item.image} alt={item.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
-                    
-                    <div className="absolute top-8 left-8">
-                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                        <span className="w-1 h-1 rounded-full bg-[#f1cf78]" />
-                        <span className="text-[0.55rem] font-black uppercase tracking-[0.2em] text-white">
-                          {item.category}
-                        </span>
-                      </div>
+                  <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden bg-midnight">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-1000" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-8 sm:p-10">
+                    <div className="mb-5 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-full bg-[#c69a3a]/10 border border-[#c69a3a]/15">
+                      <span className="w-1 h-1 rounded-full bg-[#c69a3a]" />
+                      <span className="text-[0.55rem] font-black uppercase tracking-[0.2em] text-[#c69a3a]">
+                        {item.category}
+                      </span>
                     </div>
-
-                    <div className="absolute bottom-10 left-10 right-10">
-                      <h3 style={{fontFamily:"'Manrope',sans-serif",fontWeight:800,fontSize:'1.5rem',lineHeight:1.2,letterSpacing:'-0.02em',textShadow:'0 2px 10px rgba(0,0,0,0.5)'}} className="text-white mb-4">{item.title}</h3>
-                      <p style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500,fontSize:'1.15rem',lineHeight:1.4,textShadow:'0 1px 8px rgba(0,0,0,0.8)'}} className="text-white/90 italic mb-8 line-clamp-3">
-                        "{item.text}"
-                      </p>
-                      <Link to="/ministries/ffck/contact" className="inline-flex items-center gap-3 text-[0.65rem] font-black uppercase tracking-widest text-[#f1cf78] group/link">
-                        Get involved
-                        <div className="w-8 h-px bg-[#f1cf78]/40 group-hover/link:w-12 transition-all duration-300" />
-                      </Link>
-                    </div>
+                    <h3 style={{fontFamily:"'Manrope',sans-serif",fontWeight:800,fontSize:'1.5rem',lineHeight:1.2,letterSpacing:'-0.02em'}} className="text-midnight mb-4">{item.title}</h3>
+                    <p style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500,fontSize:'1.15rem',lineHeight:1.4}} className="text-midnight/60 italic mb-8">
+                      "{item.text}"
+                    </p>
+                    <Link to="/ministries/ffck/contact" className="mt-auto inline-flex items-center gap-3 text-[0.65rem] font-black uppercase tracking-widest text-[#c69a3a] group/link">
+                      Get involved
+                      <div className="w-8 h-px bg-[#c69a3a]/40 group-hover/link:w-12 transition-all duration-300" />
+                    </Link>
                   </div>
                 </motion.div>
               ))}
