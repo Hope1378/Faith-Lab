@@ -1,8 +1,6 @@
 import './EventCalendar.css'
 
-const categories = ['All Gatherings', 'Worship', 'Outreach', 'Youth', 'Children', 'Prayer']
-
-export default function EventCalendar({ events, view, onCategoryChange, selectedCategory }) {
+export default function EventCalendar({ events }) {
   return (
     <div className="rounded-[3.5rem] lg:rounded-[4.5rem] bg-white p-10 lg:p-20 shadow-[0_50px_120px_rgba(0,0,0,0.08)] border border-midnight/5 overflow-hidden group relative">
        {/* Atmospheric Shimmer Overlay */}
@@ -19,22 +17,6 @@ export default function EventCalendar({ events, view, onCategoryChange, selected
             </h2>
          </div>
 
-         <div className="grid grid-cols-[1.4fr_1fr_1fr] lg:grid-cols-3 items-center justify-center lg:justify-end gap-1 sm:gap-3 bg-[#faf8f5] p-2 sm:p-2 rounded-xl border border-midnight/5 w-full lg:max-w-xl lg:ml-auto overflow-hidden">
-           {categories.map((category) => {
-             const isActive = (category === 'All Gatherings' && !selectedCategory) || (category === selectedCategory)
-             return (
-                <button 
-                  key={category} 
-                  type="button" 
-                  onClick={() => onCategoryChange(category === 'All Gatherings' ? '' : category)} 
-                  style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}}
-                  className={`rounded-lg w-full px-1 sm:px-6 py-3 text-[0.5rem] sm:text-[0.65rem] uppercase tracking-normal sm:tracking-widest transition-all duration-700 whitespace-nowrap overflow-hidden text-ellipsis ${isActive ? 'bg-[#c69a3a] text-midnight shadow-xl shadow-[#c69a3a]/20' : 'bg-transparent text-midnight/30 hover:text-[#c69a3a]'}`}
-                >
-                  {category}
-                </button>
-             )
-           })}
-         </div>
        </div>
 
        {/* Premium Preview Stage */}
