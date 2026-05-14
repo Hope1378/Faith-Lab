@@ -113,8 +113,8 @@ export default function SermonCard({ sermon, compact = false, onOpenBible, singl
              </div>
           </div>
           
-          <a
-            href={`/ministries/ffck/sermons/${sermon.slug}`}
+          <Link
+            to={`/ministries/ffck/sermons/${sermon.slug}`}
             style={{
               fontFamily:"'Manrope',sans-serif", 
               fontWeight:800,
@@ -127,7 +127,7 @@ export default function SermonCard({ sermon, compact = false, onOpenBible, singl
               <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
             <div className="absolute inset-0 bg-white/30 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 skew-x-12" />
-          </a>
+          </Link>
         </div>
       </div>
     </article>

@@ -1,3 +1,21 @@
 ﻿.latest-sermons-home {
   position: relative;
 }
+
+@media (max-width: 640px) {
+  .latest-sermons-home .sermon-card {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 1.75rem;
+  }
+
+  .latest-sermons-home .sermon-card > .flex-1 {
+    padding: 1.35rem;
+  }
+
+  .latest-sermons-home .sermon-card h3 {
+    min-height: auto;
+  }
+}
