@@ -27,6 +27,23 @@ function getFallbackSermonPayload(slug) {
   return { sermon, recent: fallbackSermons.filter((item) => item.slug !== slug).slice(0, 3) }
 }
 
+function normalizeSermonPayload(payload, slug) {
+  const data = payload?.data || payload
+  if (data?.sermon) {
+    return {
+      sermon: data.sermon,
+      recent: Array.isArray(data.recent) ? data.recent : fallbackSermons.filter((item) => item.slug !== data.sermon.slug).slice(0, 3)
+    }
+  }
+  if (data?.slug) {
+    return {
+      sermon: data,
+      recent: fallbackSermons.filter((item) => item.slug !== data.slug).slice(0, 3)
+    }
+  }
+  return getFallbackSermonPayload(slug)
+}
+
 function withTimeout(promise, milliseconds) {
   return Promise.race([
     promise,
@@ -57,7 +74,7 @@ export async function fetchSermonBySlug(slug) {
   try {
     const payload = await withTimeout(api.get(`/sermons/${slug}`), 6000)
     trackEngagement('sermon_detail_view', { slug })
-    return payload?.data || payload
+    return normalizeSermonPayload(payload, slug)
   } catch {
     return getFallbackSermonPayload(slug)
   }
