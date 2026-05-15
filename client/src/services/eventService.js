@@ -2,6 +2,14 @@ import { api } from './api'
 import { trackConversion, trackEngagement } from './analyticsService'
 import { events as fallbackEvents } from '../utils/constants'
 
+function filterFallbackEvents(filters = {}) {
+  let results = [...fallbackEvents]
+  if (filters.category && filters.category !== 'All') {
+    results = results.filter((e) => e.category === filters.category)
+  }
+  return results
+}
+
 export async function fetchEvents(filters = {}) {
   try {
     const params = new URLSearchParams()
@@ -10,14 +18,11 @@ export async function fetchEvents(filters = {}) {
     if (filters.featured) params.append('featured', filters.featured)
 
     const response = await api.get(`/events?${params.toString()}`)
-    return response.events || []
+    const data = Array.isArray(response) ? response : (Array.isArray(response?.events) ? response.events : [])
+    return data.length ? data : filterFallbackEvents(filters)
   } catch (error) {
     console.error('Failed to fetch events from API, using fallback:', error.message)
-    let results = [...fallbackEvents]
-    if (filters.category && filters.category !== 'All') {
-      results = results.filter((e) => e.category === filters.category)
-    }
-    return results
+    return filterFallbackEvents(filters)
   }
 }
 

@@ -268,5 +268,47 @@ export const events = [
     location: 'Main Sanctuary',
     capacity: 500,
     featured: true
+  },
+  {
+    id: 'evt-2',
+    slug: 'city-outreach',
+    title: 'City Outreach',
+    category: 'Outreach',
+    summary: 'Serve families, feed neighbors, and pray block by block.',
+    description: 'Volunteer teams mobilize across the city with food, prayer, and practical support.',
+    coverImage: '/images/c3.jpg',
+    startsAt: new Date(Date.now() + 86400000 * 7).toISOString(),
+    endsAt: new Date(Date.now() + 86400000 * 7 + 14400000).toISOString(),
+    location: 'FFC Kidiki',
+    capacity: 120,
+    featured: true
+  },
+  {
+    id: 'evt-3',
+    slug: 'childrens-fellowship',
+    title: "Children's Fellowship",
+    category: 'Children',
+    summary: 'A fun and interactive Bible study for children.',
+    description: 'Children gather for a special time of learning, worship, and fun activities led by the Children Ministry Team.',
+    coverImage: '/images/c1.jpg',
+    startsAt: getNextUgandaDate(3, 10),
+    endsAt: getNextUgandaDate(3, 12),
+    location: "Children's Fellowship Hall",
+    capacity: 80,
+    featured: true
+  },
+  {
+    id: 'evt-4',
+    slug: 'anniversary-2026',
+    title: 'Church Anniversary 2026',
+    category: 'Special Event',
+    summary: "Join us as we celebrate another year of God's faithfulness.",
+    description: 'A special day of worship, testimony, and community fellowship.',
+    coverImage: '/images/event-anniversary.webp',
+    startsAt: '2026-05-15T10:00:00Z',
+    endsAt: '2026-05-15T14:00:00Z',
+    location: 'Faith Family Church Kidiki - Main Sanctuary',
+    capacity: 200,
+    featured: true
   }
 ]
