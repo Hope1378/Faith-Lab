@@ -12,10 +12,37 @@ import './SermonDetail.css'
 export default function SermonDetailPage() {
   const { slug } = useParams()
   const [payload, setPayload] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (slug) {
-      fetchSermonBySlug(slug).then(setPayload)
+    let active = true
+    setLoading(true)
+
+    if (!slug) {
+      setPayload(null)
+      setLoading(false)
+      return
+    }
+
+    fetchSermonBySlug(slug)
+      .then((nextPayload) => {
+        if (active) {
+          setPayload(nextPayload)
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setPayload(null)
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoading(false)
+        }
+      })
+
+    return () => {
+      active = false
     }
   }, [slug])
 
@@ -25,8 +52,23 @@ export default function SermonDetailPage() {
     }
   }
 
-  if (!payload?.sermon) {
+  if (loading) {
     return <Loader label="Loading Faith Family Message..." />
+  }
+
+  if (!payload?.sermon) {
+    return (
+      <section className="relative min-h-screen bg-[#faf8f5] px-4 py-24 text-center sm:px-6">
+        <div className="mx-auto max-w-2xl rounded-[2rem] bg-white p-8 shadow-[0_35px_90px_rgba(10,8,6,0.08)] sm:p-12">
+          <p className="text-[0.65rem] font-black uppercase tracking-[0.35em] text-[#c69a3a]">Message unavailable</p>
+          <h1 className="mt-4 text-4xl font-bold text-midnight">This message could not be opened.</h1>
+          <p className="mt-4 text-midnight/60">Please return to the archive and choose another message.</p>
+          <Link to="/ministries/ffck/sermons" className="mt-8 inline-flex rounded-full bg-[#c69a3a] px-8 py-4 text-[0.7rem] font-black uppercase tracking-[0.2em] text-white">
+            Return to Archive
+          </Link>
+        </div>
+      </section>
+    )
   }
 
   return (
