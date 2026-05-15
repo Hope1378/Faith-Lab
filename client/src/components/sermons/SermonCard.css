@@ -62,3 +62,21 @@
   pointer-events: none;
   z-index: 1;
 }
+
+@media (max-width: 640px) {
+  .sermon-card .mb-6.flex.items-center.justify-between {
+    gap: 0.65rem;
+  }
+
+  .sermon-card .mb-6.flex.items-center.justify-between > span,
+  .sermon-card .mb-6.flex.items-center.justify-between > div span {
+    white-space: nowrap;
+    letter-spacing: 0.14em;
+    font-size: 0.54rem;
+  }
+
+  .sermon-card .mb-6.flex.items-center.justify-between > div {
+    flex-shrink: 0;
+    gap: 0.35rem;
+  }
+}
