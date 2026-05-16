@@ -296,19 +296,5 @@ export const events = [
     location: "Children's Fellowship Hall",
     capacity: 80,
     featured: true
-  },
-  {
-    id: 'evt-4',
-    slug: 'anniversary-2026',
-    title: 'Church Anniversary 2026',
-    category: 'Special Event',
-    summary: "Join us as we celebrate another year of God's faithfulness.",
-    description: 'A special day of worship, testimony, and community fellowship.',
-    coverImage: '/images/event-anniversary.webp',
-    startsAt: '2026-05-15T10:00:00Z',
-    endsAt: '2026-05-15T14:00:00Z',
-    location: 'Faith Family Church Kidiki - Main Sanctuary',
-    capacity: 200,
-    featured: true
   }
 ]

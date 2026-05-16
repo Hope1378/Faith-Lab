@@ -94,12 +94,6 @@ export default function EventCard({ event, compact = false }) {
           
           {getCountdown()}
           
-          {event.featured && !getCountdown() && (
-            <div className="absolute top-7 left-8 z-50 flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#c69a3a] shadow-[0_0_15px_rgba(198,154,58,1)] animate-pulse" />
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#c69a3a] gold-text-shimmer">Featured Encounter</p>
-            </div>
-          )}
         </div>
 
         <div className="flex-1 flex flex-col p-8 sm:p-10 lg:p-12 relative z-10">
