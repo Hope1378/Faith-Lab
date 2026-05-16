@@ -116,8 +116,7 @@ export const galleryItems = [
   { id: 'g17', image: '/images/youthfellowship2.jpg', title: 'Next Generation', category: 'Community' },
   { id: 'g18', image: '/images/youthfellowship3.jpg', title: 'Faithful Youth', category: 'Community' },
   { id: 'g20', image: '/images/photo4.jpeg', title: 'Outreach Smile', category: 'Outreach' },
-  { id: 'g24', image: '/images/m11.jpg', title: 'Ministry Focus', category: 'Events' },
-  { id: 'g3', image: '/images/s3.jpg', title: 'Fellowship Moments', category: 'Community', isWide: true, position: 'center 15%' }
+  { id: 'g24', image: '/images/m11.jpg', title: 'Ministry Focus', category: 'Events' }
 ]
 
 export const galleryVideos = []
