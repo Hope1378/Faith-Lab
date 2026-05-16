@@ -35,7 +35,7 @@ export default function Contact() {
   return (
     <div className="ffck-contact-page bg-[#fcf8f1] min-h-screen">
       {/* Cinematic Hero */}
-      <section className="relative h-[430px] sm:h-[58vh] flex flex-col items-center justify-start pt-20 sm:justify-center sm:pt-0 overflow-hidden bg-midnight text-white z-10">
+      <section className="relative h-[320px] sm:h-[46vh] flex flex-col items-center justify-start pt-20 sm:justify-center sm:pt-0 overflow-hidden bg-midnight text-white z-10">
         <div className="absolute inset-0 z-0">
           <img src="/images/s3.jpg" alt="Contact Us" className="w-full h-full object-cover opacity-55 scale-110 blur-[2px] brightness-[0.78] saturate-[1.08]" />
           <div className="absolute inset-0 bg-gradient-to-b from-midnight/90 via-midnight/45 to-[#fcf8f1]" />
