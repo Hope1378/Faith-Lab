@@ -98,14 +98,14 @@ export default function Events() {
               </h1>
             </div>
             
-            <div className="flex flex-wrap gap-3 bg-white/5 backdrop-blur-xl p-2 rounded-full border border-white/10">
+            <div className="events-view-toggle flex flex-wrap gap-3 bg-white/5 backdrop-blur-xl p-2 rounded-full border border-white/10">
               {['month', 'week', 'day'].map((view) => (
                 <button 
                   key={view} 
                   type="button" 
                   onClick={() => setFilters((current) => ({ ...current, view }))} 
                   style={{fontFamily:"'Manrope',sans-serif", fontWeight:800}}
-                  className={`rounded-full px-8 py-3 text-[0.65rem] uppercase tracking-widest transition-all ${filters.view === view ? 'bg-[#c69a3a] text-midnight shadow-lg' : 'bg-transparent text-white/40 hover:text-white'}`}
+                  className={`events-view-toggle__button rounded-full px-8 py-3 text-[0.65rem] uppercase tracking-widest transition-all ${filters.view === view ? 'bg-[#c69a3a] text-midnight shadow-lg' : 'bg-transparent text-white/40 hover:text-white'}`}
                 >
                   {view}
                 </button>
