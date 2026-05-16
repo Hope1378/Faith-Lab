@@ -41,6 +41,13 @@
   font-weight: 500;
 }
 
+@media (max-width: 640px) {
+  .ffck-contact-hero-image {
+    object-fit: contain;
+    transform: none !important;
+  }
+}
+
 .ffck-contact-form-card,
 .ffck-contact-side-card {
   position: relative;
