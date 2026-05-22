@@ -28,11 +28,35 @@ export default function Navbar() {
 
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.width = '100%'
+      document.body.dataset.scrollY = String(scrollY)
     } else {
-      document.body.style.overflow = ''
+      const scrollY = document.body.dataset.scrollY || '0'
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.width = ''
+      window.scrollTo(0, Number(scrollY))
+      delete document.body.dataset.scrollY
     }
-    return () => { document.body.style.overflow = '' }
+    return () => {
+      const scrollY = document.body.dataset.scrollY
+      if (scrollY) {
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.left = ''
+        document.body.style.right = ''
+        document.body.style.width = ''
+        window.scrollTo(0, Number(scrollY))
+        delete document.body.dataset.scrollY
+      }
+    }
   }, [mobileOpen])
 
   const isHome = location.pathname === '/'
