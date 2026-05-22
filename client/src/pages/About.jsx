@@ -1,204 +1,145 @@
-import { motion } from 'framer-motion'
-import LeadershipCard from '../components/about/LeadershipCard'
-import BeliefCard from '../components/about/BeliefCard'
-import { beliefs, leaders, ministries } from '../utils/constants'
-import { fadeScale, staggerTight } from '../utils/animationVariants'
-import './About.css'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { FiArrowRight, FiHeart, FiTarget, FiZap, FiUsers, FiShield } from 'react-icons/fi'
+import ScrollReveal from '../components/ScrollReveal'
 
 export default function About() {
   return (
-    <div className="about-page pb-20">
-      {/* Cinematic Hero */}
-      <section className="relative lg:h-[85vh] flex flex-col lg:flex-row items-center justify-center overflow-hidden text-white bg-midnight">
-        {/* MOBILE/TABLET: Stacked Layout (No Crop, No Borders, All People Visible) */}
-        <div className="lg:hidden w-full bg-midnight">
-          {/* Top: The Image (Natural wide aspect ratio) */}
-          <div className="relative w-full aspect-[3648/1517] bg-black">
-            <img 
-              src="/images/c3.jpg" 
-              alt="Church Community Full View" 
-              className="w-full h-full object-cover"
-            />
-            {/* Soft edge fade to unify with the background */}
-            <div className="absolute inset-0 shadow-[inset_0_-20px_40px_rgba(0,0,0,0.6)]" />
-          </div>
-          
-          {/* Bottom: The Narrative Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="px-6 py-20 text-center bg-gradient-to-b from-black to-midnight"
-          >
-            <motion.p 
-              initial={{ opacity: 0, letterSpacing: "0.2em" }}
-              animate={{ opacity: 1, letterSpacing: "0.4em" }}
-              transition={{ duration: 1.5 }}
-              className="text-[#f1cf78] font-bold uppercase text-[10px] mb-4 drop-shadow-xl"
-            >
-              Our Journey of Faith
-            </motion.p>
-            <h1 className="display-title text-3xl font-black leading-tight !text-white mb-6">
-              A Legacy of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c69a3a] to-[#f1cf78]">Love & Service</span>
-            </h1>
-            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#f1cf78] to-transparent mx-auto opacity-50" />
-          </motion.div>
-        </div>
+    <>
+      <Helmet>
+        <title>About Us — FaithFound Lab</title>
+        <meta name="description" content="Learn about FaithFound Lab's vision, mission, and core focus areas. Where faith sparks innovation." />
+      </Helmet>
 
-        {/* DESKTOP ONLY: Cinematic Overlay Layout */}
-        <div className="hidden lg:block absolute inset-0 z-0">
-          <img 
-            src="/images/c3.jpg" 
-            alt="Faith Family Church Community Desktop" 
-            className="w-full h-full object-cover contrast-[1.02] saturate-[1.05]" 
-            style={{ objectPosition: 'center 25%' }}
-          />
-          {/* Cinematic Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-midnight/90 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-10" />
-          <div className="cinematic-grain opacity-[0.04] z-20" />
-        </div>
-
-        {/* Desktop Title Layer */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="hidden lg:block relative z-40 text-center max-w-5xl px-4"
-        >
-          <motion.p 
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={{ opacity: 1, letterSpacing: "0.4em" }}
-            transition={{ duration: 1.5 }}
-            className="text-[#f1cf78] font-bold uppercase text-sm mb-6 drop-shadow-xl"
-          >
-            Our Journey of Faith
-          </motion.p>
-          <h1 className="display-title text-7xl lg:text-8xl font-black leading-[0.9] !text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-            A Legacy of <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c69a3a] to-[#f1cf78]">Love & Service</span>
+      {/* Hero */}
+      <section style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', background: 'var(--primary)', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80)',
+          backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.25
+        }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--primary), transparent)' }} />
+        <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '4rem', paddingBottom: '3rem' }}>
+          <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+            About Us
+          </span>
+          <h1 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', marginTop: '0.75rem', fontWeight: 700, maxWidth: 600 }}>
+            Our Heart & Purpose
           </h1>
-        </motion.div>
+        </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 mt-8 lg:-mt-20 relative z-20 space-y-24">
-        {/* Core Identity Section */}
-        <motion.section 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true }}
-          variants={fadeScale}
-          className="about-identity-card rounded-[3rem] bg-[#faf8f5] p-8 sm:p-16 shadow-2xl border border-midnight/5"
-        >
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="eyebrow text-[#c69a3a] mb-4">Our Heart</p>
-              <h2 className="display-title text-4xl sm:text-5xl font-bold text-midnight mb-8 leading-tight tracking-tight">Formed by Presence, Sent with Love.</h2>
-              <p className="text-lg sm:text-xl text-midnight/70 leading-relaxed font-medium">
-                Faith Family Church Kidiki exists to exalt Jesus Christ, disciple believers, strengthen families, and serve the people of Kamuli with love, prayer, and biblical truth. We believe in a church that is not just a building, but a living body of Christ.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group/img relative">
-                <img 
-                  src="/images/s1.jpg" 
-                  alt="" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110 brightness-[1.02] contrast-[1.1] saturate-[1.15]" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
+      {/* Vision / Mission */}
+      <section className="section-padding">
+        <div className="container">
+          <ScrollReveal>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }} className="about-grid">
+              <div>
+                <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                  Why We Exist
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', marginTop: '0.75rem', marginBottom: '1.5rem', fontWeight: 700 }}>
+                  Vision & Mission
+                </h2>
+                <div className="divider-accent" style={{ marginBottom: '1.5rem' }} />
+              <div style={{ marginBottom: '1.5rem' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FiTarget size={16} style={{ color: 'var(--accent)' }} /> Vision
+                </h4>
+                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, paddingLeft: '1.5rem' }}>
+                  To nurture a generation of confident, purpose-driven young leaders who transform their communities through character, creativity, and service.
+                </p>
               </div>
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group/img relative">
-                <img 
-                  src="/images/outreach8.jpg" 
-                  alt="" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110 brightness-[1.02] contrast-[1.1] saturate-[1.15]" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
+              <div>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FiHeart size={16} style={{ color: 'var(--accent)' }} /> Mission
+                </h4>
+                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, paddingLeft: '1.5rem' }}>
+                  FaithFound Lab empowers young people through mentorship, leadership development, and entrepreneurial thinking, helping them discover purpose, build confidence, and create positive change in their communities.
+                </p>
               </div>
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group/img relative">
-                <img 
-                  src="/images/c5.jpg" 
-                  alt="" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110 brightness-[1.02] contrast-[1.1] saturate-[1.15]" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
+              <div style={{ marginTop: '2rem' }}>
+                <Link to="/programs" className="btn btn-primary">
+                  Explore Programs <FiArrowRight />
+                </Link>
               </div>
             </div>
-          </div>
-        </motion.section>
-
-        {/* Beliefs Grid */}
-        <section className="space-y-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="eyebrow text-[#c69a3a] mb-3">Foundations</p>
-            <h2 className="display-title text-4xl sm:text-5xl font-bold text-midnight">What We Believe</h2>
-          </div>
-          <motion.div 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true }}
-            variants={staggerTight}
-            className="grid gap-6 md:grid-cols-2 xl:grid-cols-4"
-          >
-            {beliefs.map((belief) => <BeliefCard key={belief.id} belief={belief} />)}
-          </motion.div>
-        </section>
-
-        {/* Leadership Section */}
-        <section className="space-y-16">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-            <div className="max-w-2xl">
-              <p className="eyebrow text-[#c69a3a] mb-3">Our Stewards</p>
-              <h2 className="display-title text-4xl sm:text-5xl font-bold text-midnight">Guiding the Vision</h2>
+            <div style={{ position: 'relative' }}>
+              <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80"
+                  alt="Students collaborating"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
+              </div>
             </div>
-            <p className="text-midnight/60 font-medium max-w-md">
-              Led by a commitment to prayer and deep theological roots, our leadership serves to equip the saints for the work of ministry.
-            </p>
-          </div>
-          <motion.div 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true }}
-            variants={staggerTight}
-            className="grid gap-8 lg:grid-cols-2"
-          >
-            {leaders.slice(0, 2).map((leader) => <LeadershipCard key={leader.id} leader={leader} />)}
-          </motion.div>
-        </section>
+          </ScrollReveal>
+        </div>
+      </section>
 
-        {/* Ministries Section */}
-        <section className="space-y-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="eyebrow text-[#c69a3a] mb-3">Engagement</p>
-            <h2 className="display-title text-4xl sm:text-5xl font-bold text-midnight">Areas of Ministry</h2>
-          </div>
-          <motion.div 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true }}
-            variants={staggerTight}
-            className="grid gap-8 md:grid-cols-3"
-          >
-            {ministries.map((ministry) => (
-              <div key={ministry.id} className="glass-panel-dark rounded-[2.5rem] p-10 transform transition-all duration-500 hover:-translate-y-2">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c69a3a]/10 text-[#c69a3a]">
-                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21l-8-4.5v-9L12 3l8 4.5v9L12 21z" />
-                  </svg>
+      {/* Core Focus Areas */}
+      <section className="section-padding" style={{ background: 'var(--surface-dark)', color: '#fff' }}>
+        <div className="container">
+          <ScrollReveal>
+            <div style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto 3.5rem' }}>
+              <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                Core Focus Areas
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', marginTop: '0.75rem', fontWeight: 700 }}>
+                What We Cultivate
+              </h2>
+              <div className="divider-accent" style={{ margin: '1rem auto 0', background: 'linear-gradient(90deg, var(--accent), var(--accent-soft))' }} />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.15}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
+            {[
+              { icon: <FiHeart size={20} />, title: 'Confidence', desc: 'Encouraging belief in their abilities and voice.' },
+              { icon: <FiUsers size={20} />, title: 'Leadership', desc: 'Developing responsible leaders who influence their communities positively.' },
+              { icon: <FiZap size={20} />, title: 'Innovation', desc: 'Teaching creativity, problem-solving, and entrepreneurship.' },
+              { icon: <FiTarget size={20} />, title: 'Community', desc: 'Building supportive networks that empower growth.' },
+              { icon: <FiShield size={20} />, title: 'Integrity', desc: 'Acting with honesty, respect, and accountability.' },
+            ].map((f, i) => (
+              <div key={i} style={{
+                background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 'var(--radius-lg)', padding: '1.75rem',
+                transition: 'background var(--transition), border-color var(--transition)'
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.borderColor = 'rgba(212,168,67,0.3)' }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }}
+              >
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
+                  {f.icon}
                 </div>
-                <p className="text-xs uppercase tracking-[0.25em] text-[#c69a3a] font-bold">Ministry</p>
-                <h3 className="mt-4 text-2xl font-black text-white">{ministry.name}</h3>
-                <p className="mt-4 text-white/70 leading-relaxed">{ministry.description}</p>
-                <div className="mt-8 pt-8 border-t border-white/10">
-                  <p className="text-sm font-bold text-[#f1cf78]">{ministry.meetingTime}</p>
-                  <p className="mt-1 text-sm text-white/50">{ministry.location}</p>
-                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--accent)', fontFamily: "'Playfair Display', serif" }}>{f.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.6 }}>{f.desc}</p>
               </div>
             ))}
-          </motion.div>
-        </section>
-      </div>
-    </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding" style={{ background: 'var(--surface-alt)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <ScrollReveal>
+            <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', marginBottom: '1rem', fontWeight: 700 }}>
+              Be Part of the Movement
+            </h2>
+            <div className="divider-accent" style={{ margin: '0 auto 1.5rem' }} />
+            <p style={{ color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto 1.5rem', lineHeight: 1.7 }}>
+              Join a generation of young leaders who are transforming their communities through faith, creativity, and service.
+            </p>
+            <Link to="/join" className="btn btn-primary" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
+              <FiHeart size={18} /> Join FaithFound Lab
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <style>{`@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }`}</style>
+    </>
   )
 }
