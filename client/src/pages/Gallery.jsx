@@ -4,14 +4,14 @@ import { FiArrowRight, FiCamera, FiUsers } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 
 const galleryItems = [
-  { src: '/assets/gallery/children-park.svg', alt: 'Children playing together in a park' },
-  { src: '/assets/gallery/children-classroom.svg', alt: 'Children studying in a classroom' },
-  { src: '/assets/gallery/children-outdoor-learning.svg', alt: 'Children learning outdoors in a park' },
-  { src: '/assets/gallery/women-classroom.svg', alt: 'Women in a classroom discussion' },
-  { src: '/assets/gallery/women-group-discussion.svg', alt: 'Women in a group discussion' },
-  { src: '/assets/gallery/women-park.svg', alt: 'Women meeting in a park' },
-  { src: '/assets/gallery/women-classroom.svg', alt: 'Women sharing ideas in a classroom' },
-  { src: '/assets/gallery/children-classroom.svg', alt: 'Children and adults in a learning session' },
+  { src: 'https://images.pexels.com/photos/5275447/pexels-photo-5275447.jpeg?cs=srgb&dl=pexels-antonius-ferret-5275447.jpg&fm=jpg', alt: 'Children playing together in a park' },
+  { src: 'https://images.pexels.com/photos/8618025/pexels-photo-8618025.jpeg?cs=srgb&dl=pexels-yankrukov-8618025.jpg&fm=jpg', alt: 'Children studying in a classroom' },
+  { src: 'https://images.pexels.com/photos/20723813/pexels-photo-20723813.jpeg?cs=srgb&dl=pexels-hi-u-ph-m-d-c-1100393356-20723813.jpg&fm=jpg', alt: 'Children learning outdoors in a park' },
+  { src: 'https://images.pexels.com/photos/32773025/pexels-photo-32773025.jpeg?cs=srgb&dl=pexels-md-photography-2150970498-32773025.jpg&fm=jpg', alt: 'Women in a classroom discussion' },
+  { src: 'https://images.pexels.com/photos/3182808/pexels-photo-3182808.jpeg?cs=srgb&dl=pexels-fauxels-3182808.jpg&fm=jpg', alt: 'Women in a group discussion' },
+  { src: 'https://images.pexels.com/photos/8121656/pexels-photo-8121656.jpeg?cs=srgb&dl=pexels-mart-production-8121656.jpg&fm=jpg', alt: 'Women meeting in a park' },
+  { src: 'https://images.pexels.com/photos/32711391/pexels-photo-32711391.jpeg?cs=srgb&dl=pexels-md-photography-2150970498-32711391.jpg&fm=jpg', alt: 'Women sharing ideas in a classroom' },
+  { src: 'https://images.pexels.com/photos/5427660/pexels-photo-5427660.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-5427660.jpg&fm=jpg', alt: 'Children and adults in a learning session' },
 ]
 
 const galleryNotes = [
