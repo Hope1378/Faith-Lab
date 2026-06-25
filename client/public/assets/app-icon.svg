@@ -1,0 +1,43 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="188" stroke="url(#ring)" stroke-opacity="0.55" stroke-width="6"/>
+  <circle cx="256" cy="256" r="144" fill="url(#halo)" opacity="0.68"/>
+  <g transform="translate(98 88)">
+    <path d="M132 60C174 71 206 92 231 122C252 148 264 177 266 214C242 202 220 194 197 191C188 172 177 154 161 138C149 123 134 112 118 103C117 87 122 72 132 60Z" fill="#FAF7FF"/>
+    <path d="M118 104C96 115 79 133 65 156C48 183 40 211 40 238C19 225 3 209 -7 190C13 172 40 160 73 154C85 133 100 116 118 104Z" fill="#F0E5FF"/>
+    <path d="M131 113C152 126 169 144 182 168C194 193 200 219 198 244C174 231 156 217 143 196C128 174 120 149 120 127C123 121 126 117 131 113Z" fill="url(#doveBody)"/>
+    <path d="M183 187C198 183 212 182 227 184" stroke="#FFF8FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M227 184L251 176" stroke="#FFD98A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(284 176)">
+    <circle cx="70" cy="70" r="62" fill="url(#globeFill)" stroke="#FFF6FF" stroke-width="6"/>
+    <ellipse cx="70" cy="70" rx="30" ry="62" stroke="#FFF6FF" stroke-opacity="0.76" stroke-width="4"/>
+    <ellipse cx="70" cy="70" rx="62" ry="24" stroke="#FFF6FF" stroke-opacity="0.64" stroke-width="4"/>
+    <path d="M28 70H112" stroke="#FFF6FF" stroke-opacity="0.44" stroke-width="3"/>
+    <path d="M70 28V112" stroke="#FFF6FF" stroke-opacity="0.36" stroke-width="3"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="44" y1="34" x2="443" y2="476" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D1036"/>
+      <stop offset="0.56" stop-color="#4A2490"/>
+      <stop offset="1" stop-color="#160A2B"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="68" y1="68" x2="444" y2="444" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D5BCFF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(144)">
+      <stop stop-color="#B889FF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#B889FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doveBody" x1="118" y1="113" x2="205" y2="244" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.54" stop-color="#F1E7FF"/>
+      <stop offset="1" stop-color="#D7BCFF"/>
+    </linearGradient>
+    <radialGradient id="globeFill" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(70 70) rotate(90) scale(62)">
+      <stop stop-color="#DCC8FF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0.4"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,36 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="48" stroke="url(#ring)" stroke-opacity="0.55" stroke-width="1.6"/>
+  <g transform="translate(22 20)">
+    <path d="M33 15C44 18 53 24 60 33C66 41 69 50 70 60C63 56 57 53 51 52C48 47 45 42 41 38C37 33 33 29 28 26C28 22 29 18 33 15Z" fill="#FBF8FF"/>
+    <path d="M29 26C23 30 18 35 14 42C9 50 7 58 7 66C1 62 -3 57 -6 51C0 46 8 42 17 40C20 34 24 29 29 26Z" fill="#EEE3FF"/>
+    <path d="M33 28C39 32 43 37 47 44C50 51 52 58 51 65C45 62 40 58 36 52C31 46 29 39 29 32C30 30 31 29 33 28Z" fill="url(#dove)"/>
+    <path d="M47 50C51 49 55 49 59 50" stroke="#FFF7FF" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M59 50L66 48" stroke="#FFD98A" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(70 44)">
+    <circle cx="18" cy="18" r="16" fill="url(#globe)" stroke="#FFF6FF" stroke-width="1.8"/>
+    <ellipse cx="18" cy="18" rx="8" ry="16" stroke="#FFF6FF" stroke-opacity="0.78" stroke-width="1.2"/>
+    <ellipse cx="18" cy="18" rx="16" ry="6" stroke="#FFF6FF" stroke-opacity="0.62" stroke-width="1.2"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="11" y1="8" x2="118" y2="121" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D1036"/>
+      <stop offset="0.56" stop-color="#4A2490"/>
+      <stop offset="1" stop-color="#160A2B"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D5BCFF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="dove" x1="28" y1="28" x2="53" y2="65" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.56" stop-color="#F1E7FF"/>
+      <stop offset="1" stop-color="#D7BCFF"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18 18) rotate(90) scale(16)">
+      <stop stop-color="#DCC8FF" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+</svg>
