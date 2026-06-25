@@ -1,0 +1,54 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D9F3FF"/>
+      <stop offset="100%" stop-color="#F8FBFF"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C8F0A6"/>
+      <stop offset="100%" stop-color="#84CC16"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(935 155) rotate(90) scale(120 120)">
+      <stop stop-color="#FFE58A"/>
+      <stop offset="1" stop-color="#FFD25C"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="930" cy="150" r="84" fill="url(#sun)" opacity="0.95"/>
+  <path d="M0 610C150 560 292 580 410 625C530 670 660 705 820 670C960 640 1080 605 1200 635V900H0V610Z" fill="url(#grass)"/>
+  <path d="M180 610C250 525 330 500 420 510C520 520 595 565 650 640H180V610Z" fill="#7DD36B" opacity="0.9"/>
+  <path d="M830 620C875 560 945 525 1030 525C1090 525 1140 548 1200 585V900H860C845 765 830 675 830 620Z" fill="#66B84A" opacity="0.85"/>
+  <rect x="210" y="460" width="28" height="180" rx="14" fill="#8B5A2B"/>
+  <path d="M224 455C176 390 150 345 150 300C150 246 186 210 241 210C297 210 336 249 336 300C336 345 311 390 262 455H224Z" fill="#2F8F5B"/>
+  <rect x="954" y="395" width="22" height="205" rx="11" fill="#8B5A2B"/>
+  <path d="M965 392C925 342 910 297 910 260C910 215 941 188 990 188C1039 188 1070 219 1070 260C1070 297 1055 342 1016 392H965Z" fill="#3A9D68"/>
+  <ellipse cx="438" cy="666" rx="80" ry="28" fill="#000" opacity="0.08"/>
+  <ellipse cx="610" cy="678" rx="92" ry="30" fill="#000" opacity="0.08"/>
+  <ellipse cx="768" cy="660" rx="72" ry="25" fill="#000" opacity="0.08"/>
+  <circle cx="390" cy="520" r="30" fill="#FFD9C8"/>
+  <path d="M352 612C355 570 368 546 390 546C412 546 426 570 429 612V665H352V612Z" fill="#FFB703"/>
+  <path d="M334 575C344 552 364 536 390 536C416 536 436 552 446 575" stroke="#EF4444" stroke-width="16" stroke-linecap="round"/>
+  <path d="M354 663L325 710" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M426 663L462 706" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M372 666L350 742" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M410 666L430 742" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="560" cy="514" r="30" fill="#FAD7C2"/>
+  <path d="M522 605C525 560 538 536 560 536C582 536 596 560 599 605V678H522V605Z" fill="#60A5FA"/>
+  <path d="M542 566C551 552 556 547 560 547C564 547 569 552 578 566" stroke="#0F172A" stroke-width="15" stroke-linecap="round"/>
+  <path d="M536 669L507 716" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M586 669L618 720" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M540 678L528 752" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M584 678L592 752" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="715" cy="504" r="31" fill="#F7D5C4"/>
+  <path d="M677 598C680 553 693 529 715 529C737 529 751 553 754 598V662H677V598Z" fill="#34D399"/>
+  <path d="M679 546C691 522 710 508 715 508C720 508 739 522 751 546" stroke="#8B5CF6" stroke-width="15" stroke-linecap="round"/>
+  <path d="M690 660L661 713" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M742 660L775 710" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M694 666L680 744" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <path d="M738 666L747 744" stroke="#334155" stroke-width="14" stroke-linecap="round"/>
+  <rect x="468" y="742" width="220" height="18" rx="9" fill="#0F172A" opacity="0.18"/>
+  <circle cx="260" cy="312" r="8" fill="#FFF" opacity="0.75"/>
+  <circle cx="320" cy="270" r="6" fill="#FFF" opacity="0.75"/>
+  <circle cx="980" cy="280" r="7" fill="#FFF" opacity="0.75"/>
+  <circle cx="1045" cy="240" r="5" fill="#FFF" opacity="0.75"/>
+</svg>

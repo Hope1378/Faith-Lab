@@ -4,20 +4,20 @@ import { FiArrowRight, FiCamera, FiUsers } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 
 const galleryItems = [
-  { src: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200&q=80', alt: 'Women leading a workshop' },
-  { src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80', alt: 'Professional portrait of a woman' },
-  { src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80', alt: 'Children learning together' },
-  { src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80', alt: 'Mentoring conversation with a young student' },
-  { src: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&q=80', alt: 'Women in a business session' },
-  { src: 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?w=1200&q=80', alt: 'Children smiling in a classroom' },
-  { src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80', alt: 'Women and children in a group session' },
-  { src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200&q=80', alt: 'Women in a leadership panel' },
+  { src: '/assets/gallery/children-park.svg', alt: 'Children playing together in a park' },
+  { src: '/assets/gallery/children-classroom.svg', alt: 'Children studying in a classroom' },
+  { src: '/assets/gallery/children-outdoor-learning.svg', alt: 'Children learning outdoors in a park' },
+  { src: '/assets/gallery/women-classroom.svg', alt: 'Women in a classroom discussion' },
+  { src: '/assets/gallery/women-group-discussion.svg', alt: 'Women in a group discussion' },
+  { src: '/assets/gallery/women-park.svg', alt: 'Women meeting in a park' },
+  { src: '/assets/gallery/women-classroom.svg', alt: 'Women sharing ideas in a classroom' },
+  { src: '/assets/gallery/children-classroom.svg', alt: 'Children and adults in a learning session' },
 ]
 
 const galleryNotes = [
-  { title: 'Women in Business', text: 'Conversations, panels, and leadership moments that encourage confidence and growth.' },
-  { title: 'Children & Families', text: 'Warm, joyful scenes that show learning, belonging, and community support.' },
-  { title: 'Mentorship', text: 'Real relationships, encouragement, and practical guidance for the journey ahead.' },
+  { title: 'Children at Play', text: 'Outdoor moments that show joy, movement, and confidence in familiar spaces.' },
+  { title: 'Classroom Learning', text: 'Hands-on studying, reading, and group learning in bright classroom settings.' },
+  { title: 'Women & Discussion', text: 'Women gathering in parks and classrooms to share ideas, support, and leadership.' },
 ]
 
 export default function Gallery() {
@@ -44,7 +44,7 @@ export default function Gallery() {
               A visual archive of the people, learning, and energy that shape FaithFound Lab.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.6rem' }}>
-              {['Women in Business', 'Children & Families', 'Mentorship', 'Community Events'].map((item) => (
+              {['Children Playing', 'Classroom Learning', 'Women in Parks', 'Group Discussions'].map((item) => (
                 <span
                   key={item}
                   style={{
@@ -74,10 +74,10 @@ export default function Gallery() {
                   Gallery Highlights
                 </span>
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', marginTop: '0.65rem', fontWeight: 700 }}>
-                  Photos from our programs and community events
+                  Children, women, parks, classrooms, and group discussions
                 </h2>
                 <p style={{ color: 'var(--text-muted)', lineHeight: 1.75, marginTop: '0.75rem', maxWidth: 680 }}>
-                  Browse scenes from workshops, mentorship sessions, leadership gatherings, and time spent with women, children, and families.
+                  Browse scenes that show children ages 5 to 10 playing and studying, women in parks and classrooms, and moments of shared discussion.
                 </p>
               </div>
               <Link to="/camps" className="btn btn-secondary">
@@ -88,7 +88,7 @@ export default function Gallery() {
 
           <div className="gallery-grid">
             {galleryItems.map((item, index) => (
-              <ScrollReveal key={item.src} delay={index * 0.04}>
+              <ScrollReveal key={`${item.src}-${index}`} delay={index * 0.04}>
                 <figure className="gallery-card">
                   <img src={item.src} alt={item.alt} />
                   <div className="gallery-card-overlay" />
@@ -114,7 +114,7 @@ export default function Gallery() {
                 <span className="gallery-kicker">Gallery focus</span>
                 <h3>Women and children at the center</h3>
                 <p>
-                  The gallery highlights the people and moments that matter most to FaithFound Lab.
+                  The gallery highlights children learning and playing, women connecting in public and classroom spaces, and group discussions.
                 </p>
               </div>
               <div className="gallery-notes-stack">
