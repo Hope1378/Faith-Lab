@@ -1,17 +1,23 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCamera, FiHeart, FiStar } from 'react-icons/fi'
+import { FiArrowRight, FiCamera, FiUsers } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 
 const galleryItems = [
-  { src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80', alt: 'Group collaboration', tall: true },
-  { src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&q=80', alt: 'Portrait in conversation' },
-  { src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80', alt: 'Creative workshop table' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&q=80', alt: 'Audience at a live event', wide: true },
-  { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80', alt: 'Students building together' },
-  { src: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1200&q=80', alt: 'Speaker on stage' },
-  { src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200&q=80', alt: 'Women in business panel', wide: true },
-  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80', alt: 'Team celebration' },
+  { src: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200&q=80', alt: 'Women leading a workshop' },
+  { src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80', alt: 'Professional portrait of a woman' },
+  { src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80', alt: 'Children learning together' },
+  { src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80', alt: 'Mentoring conversation with a young student' },
+  { src: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&q=80', alt: 'Women in a business session' },
+  { src: 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?w=1200&q=80', alt: 'Children smiling in a classroom' },
+  { src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80', alt: 'Women and children in a group session' },
+  { src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200&q=80', alt: 'Women in a leadership panel' },
+]
+
+const galleryNotes = [
+  { title: 'Women in Business', text: 'Conversations, panels, and leadership moments that encourage confidence and growth.' },
+  { title: 'Children & Families', text: 'Warm, joyful scenes that show learning, belonging, and community support.' },
+  { title: 'Mentorship', text: 'Real relationships, encouragement, and practical guidance for the journey ahead.' },
 ]
 
 export default function Gallery() {
@@ -19,38 +25,60 @@ export default function Gallery() {
     <>
       <Helmet>
         <title>Gallery — FaithFound Lab</title>
-        <meta name="description" content="A vibrant gallery of FaithFound Lab moments, camps, events, and community stories." />
+        <meta
+          name="description"
+          content="Browse gallery highlights from FaithFound Lab, featuring women, children, mentorship, and community events."
+        />
       </Helmet>
 
-      <section style={{ position: 'relative', minHeight: '62vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #111827 0%, #0f172a 55%, #7c3aed 120%)' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.16 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 20% 20%, rgba(34,211,238,0.28), transparent 25%), radial-gradient(circle at 80% 30%, rgba(212,168,67,0.24), transparent 22%), linear-gradient(to top, rgba(15,23,42,0.9), transparent 60%)' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '6rem', paddingBottom: '4rem' }}>
-          <div style={{ maxWidth: 780 }}>
-            <span style={{ color: 'var(--accent-soft)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.24em', textTransform: 'uppercase' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0f172a 0%, #111827 55%, #1d4ed8 100%)', color: '#fff' }}>
+        <div className="container" style={{ paddingTop: '5.5rem', paddingBottom: '4rem' }}>
+          <div style={{ maxWidth: 760 }}>
+            <span style={{ color: 'var(--accent-soft)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase' }}>
               Gallery
             </span>
-            <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: '#fff', marginTop: '0.9rem', fontWeight: 700, lineHeight: 1.02 }}>
-              The color, energy, and joy of the FaithFound Lab experience.
+            <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4.4rem)', lineHeight: 1.02, marginTop: '0.9rem', fontWeight: 700 }}>
+              Moments from our community, camps, and leadership spaces.
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.78)', maxWidth: 620, marginTop: '1.2rem', lineHeight: 1.8, fontSize: '1.05rem' }}>
-              A curated visual story of workshops, camps, leadership moments, and community celebrations with a bold editorial feel.
+            <p style={{ maxWidth: 620, marginTop: '1rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.8, fontSize: '1.03rem' }}>
+              A visual archive of the people, learning, and energy that shape FaithFound Lab.
             </p>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.6rem' }}>
+              {['Women in Business', 'Children & Families', 'Mentorship', 'Community Events'].map((item) => (
+                <span
+                  key={item}
+                  style={{
+                    padding: '0.5rem 0.85rem',
+                    borderRadius: 999,
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    color: 'rgba(255,255,255,0.9)',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding" style={{ background: 'linear-gradient(180deg, #fff 0%, #f8fbff 100%)' }}>
+      <section className="section-padding" style={{ background: 'linear-gradient(180deg, #fff 0%, #f8fafc 100%)' }}>
         <div className="container">
           <ScrollReveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'end', marginBottom: '2rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'end', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
               <div>
                 <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-                  Highlights
+                  Gallery Highlights
                 </span>
-                <h2 style={{ fontSize: 'clamp(1.9rem, 3.8vw, 3rem)', marginTop: '0.8rem', fontWeight: 700 }}>
-                  Moments worth remembering
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', marginTop: '0.65rem', fontWeight: 700 }}>
+                  Photos from our programs and community events
                 </h2>
+                <p style={{ color: 'var(--text-muted)', lineHeight: 1.75, marginTop: '0.75rem', maxWidth: 680 }}>
+                  Browse scenes from workshops, mentorship sessions, leadership gatherings, and time spent with women, children, and families.
+                </p>
               </div>
               <Link to="/camps" className="btn btn-secondary">
                 See Camps & Events <FiArrowRight />
@@ -58,37 +86,16 @@ export default function Gallery() {
             </div>
           </ScrollReveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '1rem' }} className="gallery-grid">
+          <div className="gallery-grid">
             {galleryItems.map((item, index) => (
-              <ScrollReveal key={item.src} delay={index * 0.05}>
-                <figure
-                  style={{
-                    gridColumn: item.wide ? 'span 6' : item.tall ? 'span 4' : 'span 3',
-                    gridRow: item.tall ? 'span 2' : 'span 1',
-                    minHeight: item.tall ? 420 : 260,
-                    margin: 0,
-                    borderRadius: '1.4rem',
-                    overflow: 'hidden',
-                    position: 'relative',
-                    boxShadow: '0 24px 50px -28px rgba(15,23,42,0.38)',
-                    background: '#e2e8f0',
-                  }}
-                >
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.01)' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.7), transparent 50%)' }} />
-                  <div style={{ position: 'absolute', left: '1rem', right: '1rem', bottom: '1rem', display: 'flex', alignItems: 'end', justifyContent: 'space-between', gap: '0.75rem' }}>
-                    <div>
-                      <div style={{ color: 'rgba(255,255,255,0.74)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase' }}>FaithFound Lab</div>
-                      <figcaption style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginTop: '0.35rem' }}>{item.alt}</figcaption>
-                    </div>
-                    <div style={{ width: 42, height: 42, borderRadius: '50%', background: 'rgba(255,255,255,0.14)', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                      <FiCamera />
-                    </div>
-                  </div>
+              <ScrollReveal key={item.src} delay={index * 0.04}>
+                <figure className="gallery-card">
+                  <img src={item.src} alt={item.alt} />
+                  <div className="gallery-card-overlay" />
+                  <figcaption>
+                    <div className="gallery-card-tag">FaithFound Lab</div>
+                    <div className="gallery-card-title">{item.alt}</div>
+                  </figcaption>
                 </figure>
               </ScrollReveal>
             ))}
@@ -99,31 +106,140 @@ export default function Gallery() {
       <section className="section-padding" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #111827 100%)', color: '#fff' }}>
         <div className="container">
           <ScrollReveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-              {[
-                { icon: <FiStar size={20} />, title: 'Premium storytelling', text: 'Images are arranged like an editorial spread with rhythm and breathing room.' },
-                { icon: <FiHeart size={20} />, title: 'Human-centered energy', text: 'Faces, collaboration, and celebration are the focus of every visual.' },
-                { icon: <FiArrowRight size={20} />, title: 'Built for conversion', text: 'The gallery naturally leads visitors toward camps, events, and joining the lab.' },
-              ].map((item) => (
-                <div key={item.title} style={{ padding: '1.35rem', borderRadius: '1.35rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ width: 46, height: 46, borderRadius: 14, background: 'linear-gradient(135deg, var(--accent), #22d3ee)', color: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-                    {item.icon}
-                  </div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>{item.title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>{item.text}</p>
+            <div className="gallery-notes">
+              <div className="gallery-notes-lead">
+                <div style={{ width: 52, height: 52, borderRadius: 16, background: 'linear-gradient(135deg, var(--accent), #22d3ee)', color: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <FiUsers size={20} />
                 </div>
-              ))}
+                <span className="gallery-kicker">Gallery focus</span>
+                <h3>Women and children at the center</h3>
+                <p>
+                  The gallery highlights the people and moments that matter most to FaithFound Lab.
+                </p>
+              </div>
+              <div className="gallery-notes-stack">
+                {galleryNotes.map((item) => (
+                  <div key={item.title} className="gallery-note-card">
+                    <div className="gallery-note-title-row">
+                      <span>{item.title}</span>
+                      <FiCamera size={15} />
+                    </div>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .gallery-grid > * { grid-column: span 6 !important; grid-row: span 1 !important; min-height: 260px !important; }
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
         }
-        @media (max-width: 640px) {
-          .gallery-grid > * { grid-column: span 12 !important; }
+        .gallery-card {
+          position: relative;
+          margin: 0;
+          border-radius: 1.15rem;
+          overflow: hidden;
+          min-height: 290px;
+          aspect-ratio: 4 / 3;
+          background: #e2e8f0;
+          border: 1px solid rgba(15,23,42,0.06);
+          box-shadow: 0 16px 34px -24px rgba(15,23,42,0.32);
+        }
+        .gallery-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .gallery-card-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(15,23,42,0.66), transparent 58%);
+        }
+        .gallery-card figcaption {
+          position: absolute;
+          left: 1rem;
+          right: 1rem;
+          bottom: 1rem;
+          color: #fff;
+          z-index: 1;
+        }
+        .gallery-card-tag {
+          font-size: 0.7rem;
+          font-weight: 800;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.78);
+        }
+        .gallery-card-title {
+          margin-top: 0.35rem;
+          font-size: 1rem;
+          line-height: 1.2;
+          font-weight: 700;
+          max-width: 240px;
+        }
+        .gallery-notes {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          align-items: start;
+        }
+        .gallery-notes-lead {
+          padding: 1.75rem;
+          border-radius: 1.45rem;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.08);
+        }
+        .gallery-notes-lead h3 {
+          font-size: clamp(1.7rem, 3vw, 2.4rem);
+          line-height: 1.05;
+          margin: 0.45rem 0 0;
+        }
+        .gallery-notes-lead p,
+        .gallery-note-card p {
+          color: rgba(255,255,255,0.74);
+          line-height: 1.7;
+          margin-top: 0.8rem;
+        }
+        .gallery-notes-stack {
+          display: grid;
+          gap: 1rem;
+        }
+        .gallery-note-card {
+          padding: 1.25rem 1.35rem;
+          border-radius: 1.35rem;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.08);
+        }
+        .gallery-note-title-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          color: var(--accent-soft);
+          font-size: 0.72rem;
+          font-weight: 800;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+        }
+        @media (max-width: 1024px) {
+          .gallery-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 768px) {
+          .gallery-grid,
+          .gallery-notes {
+            grid-template-columns: 1fr;
+          }
+          .gallery-card {
+            min-height: 260px;
+          }
         }
       `}</style>
     </>

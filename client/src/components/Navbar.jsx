@@ -63,6 +63,20 @@ export default function Navbar() {
 
   const isHome = location.pathname === '/'
   const transparent = isHome && !scrolled && !mobileOpen
+  const navShellStyle = transparent
+    ? {
+        background: 'rgba(15, 23, 42, 0.16)',
+        border: '1px solid rgba(255, 255, 255, 0.18)',
+        boxShadow: '0 20px 50px rgba(15, 23, 42, 0.18)',
+      }
+    : {
+        background: 'rgba(255, 255, 255, 0.9)',
+        border: '1px solid rgba(226, 232, 240, 0.85)',
+        boxShadow: '0 18px 40px rgba(15, 23, 42, 0.08)',
+      }
+
+  const navLinkColor = transparent ? 'rgba(255,255,255,0.9)' : 'var(--primary-light)'
+  const navLinkActiveColor = transparent ? '#fff' : 'var(--primary)'
 
   return (
     <header
@@ -76,14 +90,22 @@ export default function Navbar() {
         height: 'var(--navbar-height)',
         display: 'flex',
         alignItems: 'center',
-        transition: 'background var(--transition), box-shadow var(--transition)',
-        background: transparent ? 'transparent' : 'rgba(255,255,255,0.92)',
-        backdropFilter: transparent ? 'none' : 'blur(12px)',
-        WebkitBackdropFilter: transparent ? 'none' : 'blur(12px)',
-        boxShadow: transparent ? 'none' : 'var(--shadow)',
+        transition: 'background var(--transition), box-shadow var(--transition), transform var(--transition)',
+        background: transparent ? 'linear-gradient(180deg, rgba(15,23,42,0.18), rgba(15,23,42,0))' : 'rgba(255,255,255,0.72)',
+        backdropFilter: transparent ? 'none' : 'blur(16px)',
+        WebkitBackdropFilter: transparent ? 'none' : 'blur(16px)',
+        borderBottom: transparent ? 'none' : '1px solid rgba(226,232,240,0.6)',
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100%',
+        }}
+      >
         <Link
           to="/"
           style={{
@@ -95,34 +117,69 @@ export default function Navbar() {
             color: transparent ? '#fff' : 'var(--primary)',
             fontFamily: "'Playfair Display', serif",
             letterSpacing: '-0.02em',
+            zIndex: 2,
           }}
         >
           <Logo size={36} color={transparent ? '#fff' : 'var(--accent)'} />
-          FaithFound Lab
+          <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+            <span>FaithFound Lab</span>
+            <span
+              style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontSize: '0.68rem',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: transparent ? 'rgba(255,255,255,0.72)' : 'var(--text-muted)',
+                marginTop: '0.2rem',
+              }}
+            >
+              Faith • Innovation • Community
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
         <nav
-          className="desktop-nav"
-          style={{ display: 'flex', alignItems: 'center', gap: '2.25rem' }}
+          className="desktop-nav nav-shell"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            padding: '0.5rem 0.55rem 0.5rem 1rem',
+            borderRadius: '999px',
+            ...navShellStyle,
+          }}
         >
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               style={{
-                fontSize: '0.9rem',
-                fontWeight: 500,
-                color: transparent ? 'rgba(255,255,255,0.85)' : 'var(--primary)',
+                fontSize: '0.88rem',
+                fontWeight: 600,
+                color: location.pathname === l.to ? navLinkActiveColor : navLinkColor,
                 position: 'relative',
-                paddingBottom: '0.25rem',
-                transition: 'color var(--transition)',
+                padding: '0.75rem 0.95rem',
+                borderRadius: '999px',
+                transition: 'color var(--transition), background var(--transition), transform var(--transition)',
+                background:
+                  location.pathname === l.to
+                    ? transparent
+                      ? 'rgba(255,255,255,0.12)'
+                      : 'rgba(212,168,67,0.12)'
+                    : 'transparent',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = transparent ? '#fff' : 'var(--accent)'
+                if (location.pathname !== l.to) {
+                  e.currentTarget.style.color = transparent ? '#fff' : 'var(--primary)'
+                  e.currentTarget.style.background = transparent ? 'rgba(255,255,255,0.08)' : 'rgba(212,168,67,0.08)'
+                }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = transparent ? 'rgba(255,255,255,0.85)' : 'var(--primary)'
+                if (location.pathname !== l.to) {
+                  e.currentTarget.style.color = navLinkColor
+                  e.currentTarget.style.background = 'transparent'
+                }
               }}
             >
               {l.label}
@@ -130,13 +187,11 @@ export default function Navbar() {
                 <span
                   style={{
                     position: 'absolute',
-                    bottom: 0,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 20,
-                    height: 2,
-                    background: 'var(--accent)',
-                    borderRadius: 1,
+                    inset: '0',
+                    borderRadius: '999px',
+                    border: transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(212,168,67,0.28)',
+                    boxShadow: transparent ? '0 0 0 1px rgba(255,255,255,0.02) inset' : '0 8px 20px rgba(212,168,67,0.12) inset',
+                    pointerEvents: 'none',
                   }}
                 />
               )}
@@ -145,7 +200,14 @@ export default function Navbar() {
           <Link
             to="/join"
             className="btn btn-primary"
-            style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}
+            style={{
+              padding: '0.78rem 1.35rem',
+              fontSize: '0.83rem',
+              borderRadius: '999px',
+              marginLeft: '0.25rem',
+              boxShadow: '0 12px 24px rgba(212,168,67,0.28)',
+              border: '1px solid rgba(255,255,255,0.3)',
+            }}
           >
             Get Started
           </Link>
@@ -158,9 +220,14 @@ export default function Navbar() {
           style={{
             display: 'none',
             color: transparent ? '#fff' : 'var(--primary)',
-            fontSize: '1.5rem',
+            fontSize: '1.45rem',
             cursor: 'pointer',
-            background: 'none',
+            background: transparent ? 'rgba(255,255,255,0.08)' : 'rgba(15,23,42,0.04)',
+            width: '2.9rem',
+            height: '2.9rem',
+            borderRadius: '999px',
+            border: transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(226,232,240,0.9)',
+            boxShadow: transparent ? '0 8px 18px rgba(15,23,42,0.12)' : '0 8px 18px rgba(15,23,42,0.05)',
           }}
           aria-label="Toggle menu"
         >
@@ -177,13 +244,15 @@ export default function Navbar() {
             top: 'var(--navbar-height)',
             left: 0,
             right: 0,
-            background: 'rgba(255,255,255,0.98)',
-            backdropFilter: 'blur(12px)',
-            padding: '1.5rem',
+            background: 'rgba(255,255,255,0.96)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            padding: '1.25rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-lg)',
+            gap: '0.7rem',
+            boxShadow: '0 20px 40px rgba(15,23,42,0.12)',
+            borderBottom: '1px solid rgba(226,232,240,0.85)',
           }}
         >
           {links.map((l) => (
@@ -193,21 +262,47 @@ export default function Navbar() {
               style={{
                 fontSize: '1rem',
                 fontWeight: 600,
-                padding: '0.75rem 0',
+                padding: '0.9rem 1rem',
                 color: location.pathname === l.to ? 'var(--accent)' : 'var(--primary)',
-                borderBottom: '1px solid var(--border)',
+                borderRadius: '0.9rem',
+                background: location.pathname === l.to ? 'rgba(212,168,67,0.08)' : 'transparent',
+                border: '1px solid transparent',
               }}
             >
               {l.label}
             </Link>
           ))}
-          <Link to="/join" className="btn btn-primary" style={{ marginTop: '0.5rem', textAlign: 'center' }}>
+          <Link
+            to="/join"
+            className="btn btn-primary"
+            style={{ marginTop: '0.35rem', textAlign: 'center', width: '100%', boxShadow: '0 12px 24px rgba(212,168,67,0.28)' }}
+          >
             Get Started
           </Link>
         </div>
       )}
 
       <style>{`
+        .nav-shell {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .nav-shell::before {
+          content: '';
+          position: absolute;
+          inset: 1px;
+          border-radius: inherit;
+          pointer-events: none;
+          background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.02));
+          opacity: 0.7;
+        }
+
+        .nav-shell > * {
+          position: relative;
+          z-index: 1;
+        }
+
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: flex !important; align-items: center; justify-content: center; }
