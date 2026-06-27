@@ -1,7 +1,7 @@
 export const siteInfo = {
   organizationName: 'FaithFound Lab, Inc.',
   shortName: 'FaithFound Lab',
-  addressLines: ['1032 Power Ave, Apt 90', 'Pittsburg, CA 94565'],
+  addressLines: ['1032 Power Ave, Unit 90, Second Floor', 'Pittsburg, CA 94565'],
   phoneDisplay: '(925) 504-5478',
   phoneHref: 'tel:+19255045478',
   websiteDisplay: 'www.faithfoundlab.org',

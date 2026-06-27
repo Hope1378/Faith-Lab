@@ -152,9 +152,9 @@ export default function Navbar() {
               gridTemplateRows: 'auto auto',
               alignItems: 'center',
               width: '100%',
-              maxWidth: '560px',
+              maxWidth: '540px',
               minWidth: 0,
-              padding: '0rem 0.35rem 0rem',
+              padding: '0rem 0.1rem 0rem',
               borderRadius: '999px',
               rowGap: '0',
               ...navShellStyle,
@@ -169,8 +169,8 @@ export default function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.2rem',
-                marginRight: '0.35rem',
-                marginTop: '0.12rem',
+                marginRight: '1.2rem',
+                marginTop: transparent ? '0.12rem' : '0.18rem',
                 marginBottom: 0,
               }}
             >
@@ -183,11 +183,11 @@ export default function Navbar() {
                 gridRow: '2',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 width: '100%',
                 flexWrap: 'wrap',
-                paddingLeft: '0.6rem',
-                paddingRight: '0.05rem',
+                paddingLeft: '0.15rem',
+                paddingRight: '0.15rem',
               }}
             >
               {links.map((l) => (
@@ -203,9 +203,11 @@ export default function Navbar() {
                     fontWeight: 600,
                     background:
                       location.pathname === l.to
-                        ? transparent
-                          ? 'rgba(255,255,255,0.12)'
-                          : 'rgba(212,168,67,0.12)'
+                        ? l.to === '/join'
+                          ? '#ffffff'
+                          : transparent
+                            ? 'rgba(255,255,255,0.12)'
+                            : 'rgba(212,168,67,0.12)'
                         : 'transparent',
                     transition: 'color var(--transition), background var(--transition), transform var(--transition)',
                   }}
@@ -229,8 +231,8 @@ export default function Navbar() {
                         position: 'absolute',
                         inset: 0,
                         borderRadius: '999px',
-                        border: transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(212,168,67,0.28)',
-                        boxShadow: transparent ? '0 0 0 1px rgba(255,255,255,0.02) inset' : '0 8px 20px rgba(212,168,67,0.12) inset',
+                        border: l.to === '/join' ? 'none' : transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(212,168,67,0.28)',
+                        boxShadow: l.to === '/join' ? 'none' : transparent ? '0 0 0 1px rgba(255,255,255,0.02) inset' : '0 8px 20px rgba(212,168,67,0.12) inset',
                         pointerEvents: 'none',
                       }}
                     />
