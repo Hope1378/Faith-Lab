@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
-import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
+import { FiGlobe, FiMapPin, FiPhone } from 'react-icons/fi'
 import Logo from './Logo'
+import PremiumSocialLinks from './PremiumSocialLinks'
+import { siteInfo } from '../data/siteInfo'
 
 export default function Footer() {
   return (
@@ -19,11 +21,14 @@ export default function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <Logo size={36} color="var(--accent)" />
               <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: '1.1rem' }}>
-                FaithFound Lab
+                {siteInfo.shortName}
               </span>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.7 }}>
               Where faith sparks innovation. Empowering young people to discover their true calling and build a meaningful future.
+            </p>
+            <p style={{ color: 'var(--accent-soft)', fontSize: '0.8rem', fontWeight: 600, marginTop: '1rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {siteInfo.organizationName}
             </p>
           </div>
 
@@ -75,17 +80,36 @@ export default function Footer() {
               Contact
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                <FiMail style={{ marginTop: 3, flexShrink: 0, color: 'var(--accent)' }} />
-                <span>hello@faithfoundlab.org</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+              <a
+                href={siteInfo.phoneHref}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.9rem', transition: 'color var(--transition)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+              >
                 <FiPhone style={{ marginTop: 3, flexShrink: 0, color: 'var(--accent)' }} />
-                <span>+1 (555) 000-0000</span>
-              </div>
+                <span>{siteInfo.phoneDisplay}</span>
+              </a>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
                 <FiMapPin style={{ marginTop: 3, flexShrink: 0, color: 'var(--accent)' }} />
-                <span>Community Center<br />Your City, State</span>
+                <span>
+                  {siteInfo.addressLines[0]}
+                  <br />
+                  {siteInfo.addressLines[1]}
+                </span>
+              </div>
+              <a
+                href={siteInfo.websiteHref}
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.9rem', transition: 'color var(--transition)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+              >
+                <FiGlobe style={{ marginTop: 3, flexShrink: 0, color: 'var(--accent)' }} />
+                <span>{siteInfo.websiteDisplay}</span>
+              </a>
+              <div style={{ marginTop: '0.75rem' }}>
+                <PremiumSocialLinks iconSize={18} />
               </div>
             </div>
           </div>

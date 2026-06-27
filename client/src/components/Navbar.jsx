@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
 import Logo from './Logo'
+import PremiumSocialLinks from './PremiumSocialLinks'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -37,28 +38,17 @@ export default function Navbar() {
       document.body.style.right = '0'
       document.body.style.width = '100%'
       document.body.dataset.scrollY = String(scrollY)
-    } else {
-      const scrollY = document.body.dataset.scrollY || '0'
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.left = ''
-      document.body.style.right = ''
-      document.body.style.width = ''
-      window.scrollTo(0, Number(scrollY))
-      delete document.body.dataset.scrollY
+      return
     }
-    return () => {
-      const scrollY = document.body.dataset.scrollY
-      if (scrollY) {
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.left = ''
-        document.body.style.right = ''
-        document.body.style.width = ''
-        window.scrollTo(0, Number(scrollY))
-        delete document.body.dataset.scrollY
-      }
-    }
+
+    const scrollY = document.body.dataset.scrollY || '0'
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.left = ''
+    document.body.style.right = ''
+    document.body.style.width = ''
+    window.scrollTo(0, Number(scrollY))
+    delete document.body.dataset.scrollY
   }, [mobileOpen])
 
   const isHome = location.pathname === '/'
@@ -90,20 +80,25 @@ export default function Navbar() {
         height: 'var(--navbar-height)',
         display: 'flex',
         alignItems: 'center',
-        transition: 'background var(--transition), box-shadow var(--transition), transform var(--transition)',
         background: transparent ? 'linear-gradient(180deg, rgba(15,23,42,0.18), rgba(15,23,42,0))' : 'rgba(255,255,255,0.72)',
         backdropFilter: transparent ? 'none' : 'blur(16px)',
         WebkitBackdropFilter: transparent ? 'none' : 'blur(16px)',
         borderBottom: transparent ? 'none' : '1px solid rgba(226,232,240,0.6)',
+        transition: 'background var(--transition), box-shadow var(--transition), transform var(--transition)',
       }}
     >
       <div
         className="container"
         style={{
-          display: 'flex',
+          position: 'relative',
+          display: 'grid',
+          gridTemplateColumns: 'auto minmax(0, 1fr) auto',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          gap: '1rem',
           width: '100%',
+          maxWidth: 'none',
+          paddingLeft: '0.9rem',
+          paddingRight: '0.9rem',
         }}
       >
         <Link
@@ -112,12 +107,11 @@ export default function Navbar() {
             display: 'flex',
             alignItems: 'center',
             gap: '0.75rem',
-            fontWeight: 700,
-            fontSize: '1.15rem',
             color: transparent ? '#fff' : 'var(--primary)',
             fontFamily: "'Playfair Display', serif",
+            fontSize: '1.15rem',
+            fontWeight: 700,
             letterSpacing: '-0.02em',
-            zIndex: 2,
           }}
         >
           <Logo size={36} color={transparent ? '#fff' : 'var(--accent)'} />
@@ -125,12 +119,12 @@ export default function Navbar() {
             <span>FaithFound Lab</span>
             <span
               style={{
+                marginTop: '0.2rem',
                 fontFamily: 'Inter, system-ui, sans-serif',
                 fontSize: '0.68rem',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: transparent ? 'rgba(255,255,255,0.72)' : 'var(--text-muted)',
-                marginTop: '0.2rem',
               }}
             >
               Faith • Innovation • Community
@@ -138,85 +132,137 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav
-          className="desktop-nav nav-shell"
+        <div
+          className="desktop-center-stack"
           style={{
             display: 'flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            padding: '0.5rem 0.55rem 0.5rem 1rem',
-            borderRadius: '999px',
-            ...navShellStyle,
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            gap: '0.1rem',
+            minWidth: 0,
+            width: '100%',
+            marginLeft: '2rem',
           }}
         >
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={{
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                color: location.pathname === l.to ? navLinkActiveColor : navLinkColor,
-                position: 'relative',
-                padding: '0.75rem 0.95rem',
-                borderRadius: '999px',
-                transition: 'color var(--transition), background var(--transition), transform var(--transition)',
-                background:
-                  location.pathname === l.to
-                    ? transparent
-                      ? 'rgba(255,255,255,0.12)'
-                      : 'rgba(212,168,67,0.12)'
-                    : 'transparent',
-              }}
-              onMouseEnter={(e) => {
-                if (location.pathname !== l.to) {
-                  e.currentTarget.style.color = transparent ? '#fff' : 'var(--primary)'
-                  e.currentTarget.style.background = transparent ? 'rgba(255,255,255,0.08)' : 'rgba(212,168,67,0.08)'
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (location.pathname !== l.to) {
-                  e.currentTarget.style.color = navLinkColor
-                  e.currentTarget.style.background = 'transparent'
-                }
-              }}
-            >
-              {l.label}
-              {location.pathname === l.to && (
-                <span
-                  style={{
-                    position: 'absolute',
-                    inset: '0',
-                    borderRadius: '999px',
-                    border: transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(212,168,67,0.28)',
-                    boxShadow: transparent ? '0 0 0 1px rgba(255,255,255,0.02) inset' : '0 8px 20px rgba(212,168,67,0.12) inset',
-                    pointerEvents: 'none',
-                  }}
-                />
-              )}
-            </Link>
-          ))}
-          <Link
-            to="/join"
-            className="btn btn-primary"
+          <nav
+            className="desktop-nav nav-shell"
             style={{
-              padding: '0.78rem 1.35rem',
-              fontSize: '0.83rem',
+              display: 'grid',
+              gridTemplateColumns: '1fr auto',
+              gridTemplateRows: 'auto auto',
+              alignItems: 'center',
+              width: '100%',
+              maxWidth: '600px',
+              minWidth: 0,
+              padding: '0rem 0.35rem 0rem',
               borderRadius: '999px',
-              marginLeft: '0.25rem',
-              boxShadow: '0 12px 24px rgba(212,168,67,0.28)',
-              border: '1px solid rgba(255,255,255,0.3)',
+              rowGap: '0',
+              ...navShellStyle,
             }}
           >
-            Get Started
-          </Link>
-        </nav>
+            <div
+              className="social-icons"
+              style={{
+                gridColumn: '2',
+                gridRow: '1',
+                justifySelf: 'end',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.2rem',
+                marginRight: '0.35rem',
+                marginTop: '0.12rem',
+                marginBottom: 0,
+              }}
+            >
+              <PremiumSocialLinks iconSize={14} style={{ gap: '0.2rem' }} />
+            </div>
 
-        {/* Mobile toggle */}
+            <div
+              className="menu-area"
+              style={{
+                gridColumn: '1 / -1',
+                gridRow: '2',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '14px',
+                width: '100%',
+                flexWrap: 'wrap',
+                paddingRight: '0.15rem',
+              }}
+            >
+              {links.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  style={{
+                    position: 'relative',
+                    padding: '0.1rem 0.58rem',
+                    borderRadius: '999px',
+                    color: location.pathname === l.to ? navLinkActiveColor : navLinkColor,
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    background:
+                      location.pathname === l.to
+                        ? transparent
+                          ? 'rgba(255,255,255,0.12)'
+                          : 'rgba(212,168,67,0.12)'
+                        : 'transparent',
+                    transition: 'color var(--transition), background var(--transition), transform var(--transition)',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (location.pathname !== l.to) {
+                      e.currentTarget.style.color = transparent ? '#fff' : 'var(--primary)'
+                      e.currentTarget.style.background = transparent ? 'rgba(255,255,255,0.08)' : 'rgba(212,168,67,0.08)'
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (location.pathname !== l.to) {
+                      e.currentTarget.style.color = navLinkColor
+                      e.currentTarget.style.background = 'transparent'
+                    }
+                  }}
+                >
+                  {l.label}
+                  {location.pathname === l.to && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        borderRadius: '999px',
+                        border: transparent ? '1px solid rgba(255,255,255,0.16)' : '1px solid rgba(212,168,67,0.28)',
+                        boxShadow: transparent ? '0 0 0 1px rgba(255,255,255,0.02) inset' : '0 8px 20px rgba(212,168,67,0.12) inset',
+                        pointerEvents: 'none',
+                      }}
+                    />
+                  )}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </div>
+
+        <Link
+          to="/join"
+          className="btn btn-primary nav-cta"
+          style={{
+            justifySelf: 'end',
+            transform: 'translateX(-3.75rem)',
+            padding: '0.42rem 0.82rem',
+            fontSize: '0.72rem',
+            borderRadius: '999px',
+            border: '1px solid rgba(212,168,67,0.22)',
+            whiteSpace: 'nowrap',
+            textTransform: 'uppercase',
+            letterSpacing: '0.08em',
+          }}
+        >
+          Get Started
+        </Link>
+
         <button
           className="mobile-toggle"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((open) => !open)}
           style={{
             display: 'none',
             color: transparent ? '#fff' : 'var(--primary)',
@@ -233,79 +279,105 @@ export default function Navbar() {
         >
           {mobileOpen ? <FiX /> : <FiMenu />}
         </button>
-      </div>
 
-      {/* Mobile nav */}
-      {mobileOpen && (
-        <div
-          className="mobile-nav"
-          style={{
-            position: 'absolute',
-            top: 'var(--navbar-height)',
-            left: 0,
-            right: 0,
-            background: 'rgba(255,255,255,0.96)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-            padding: '1.25rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.7rem',
-            boxShadow: '0 20px 40px rgba(15,23,42,0.12)',
-            borderBottom: '1px solid rgba(226,232,240,0.85)',
-          }}
-        >
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={{
-                fontSize: '1rem',
-                fontWeight: 600,
-                padding: '0.9rem 1rem',
-                color: location.pathname === l.to ? 'var(--accent)' : 'var(--primary)',
-                borderRadius: '0.9rem',
-                background: location.pathname === l.to ? 'rgba(212,168,67,0.08)' : 'transparent',
-                border: '1px solid transparent',
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            to="/join"
-            className="btn btn-primary"
-            style={{ marginTop: '0.35rem', textAlign: 'center', width: '100%', boxShadow: '0 12px 24px rgba(212,168,67,0.28)' }}
+        {mobileOpen && (
+          <nav
+            className="mobile-nav"
+            style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.7rem',
+              padding: '1.25rem',
+              background: 'rgba(255,255,255,0.96)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)',
+              borderBottom: '1px solid rgba(226,232,240,0.85)',
+              boxShadow: '0 20px 40px rgba(15,23,42,0.12)',
+              zIndex: 1001,
+            }}
           >
-            Get Started
-          </Link>
-        </div>
-      )}
+            {links
+              .filter((l) => l.to !== '/join')
+              .map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  style={{
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    padding: '0.9rem 1rem',
+                    color: location.pathname === l.to ? 'var(--accent)' : 'var(--primary)',
+                    borderRadius: '0.9rem',
+                    background: location.pathname === l.to ? 'rgba(212,168,67,0.08)' : 'transparent',
+                    border: '1px solid transparent',
+                  }}
+                >
+                  {l.label}
+                </Link>
+              ))}
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.2rem', marginBottom: '0.15rem' }}>
+              <PremiumSocialLinks iconSize={14} style={{ gap: '0.2rem' }} />
+            </div>
+
+            <Link
+              to="/join"
+              className="btn btn-primary"
+              style={{ width: '100%', textAlign: 'center', boxShadow: '0 12px 24px rgba(212,168,67,0.28)' }}
+            >
+              Join Us
+            </Link>
+          </nav>
+        )}
+      </div>
 
       <style>{`
         .nav-shell {
-          position: relative;
-          overflow: hidden;
+          position: static;
+          overflow: visible;
         }
 
-        .nav-shell::before {
-          content: '';
-          position: absolute;
-          inset: 1px;
-          border-radius: inherit;
-          pointer-events: none;
-          background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.02));
-          opacity: 0.7;
+        .social-icons {
+          margin-bottom: 0;
         }
 
-        .nav-shell > * {
-          position: relative;
-          z-index: 1;
+        .menu-area {
+          margin-top: 0;
+        }
+
+        .nav-cta {
+          background: rgba(212, 168, 67, 0.08) !important;
+          color: var(--accent-dark) !important;
+          box-shadow: none !important;
+          transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+        }
+
+        .nav-cta:hover {
+          background: rgba(212, 168, 67, 0.14) !important;
+          color: var(--primary) !important;
+          border-color: rgba(212, 168, 67, 0.34) !important;
         }
 
         @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .mobile-toggle { display: flex !important; align-items: center; justify-content: center; }
+          .desktop-nav,
+          .desktop-center-stack {
+            display: none !important;
+          }
+
+          .mobile-toggle {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .navbar .container {
+            display: flex !important;
+            align-items: center !important;
+          }
         }
       `}</style>
     </header>

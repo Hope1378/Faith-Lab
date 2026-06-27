@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { FiCheck, FiSend, FiUser, FiMail, FiPhone, FiMapPin, FiCalendar, FiMessageSquare, FiBookOpen } from 'react-icons/fi'
+import { FiCheck, FiSend, FiUser, FiMail, FiPhone, FiMapPin, FiCalendar, FiMessageSquare, FiBookOpen, FiGlobe } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
+import PremiumSocialLinks from '../components/PremiumSocialLinks'
+import { siteInfo } from '../data/siteInfo'
 
 export default function Join() {
   const [submitted, setSubmitted] = useState(false)
@@ -67,9 +69,9 @@ export default function Join() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {[
-                  { icon: <FiMail size={18} />, title: 'Email', value: 'hello@faithfoundlab.org' },
-                  { icon: <FiPhone size={18} />, title: 'Phone', value: '+1 (555) 000-0000' },
-                  { icon: <FiMapPin size={18} />, title: 'Location', value: 'Community Center, Your City' },
+                  { icon: <FiPhone size={18} />, title: 'Phone', value: siteInfo.phoneDisplay, href: siteInfo.phoneHref },
+                  { icon: <FiMapPin size={18} />, title: 'Address', value: siteInfo.addressLines.join(', ') },
+                  { icon: <FiGlobe size={18} />, title: 'Website', value: siteInfo.websiteDisplay, href: siteInfo.websiteHref },
                   { icon: <FiCalendar size={18} />, title: 'Office Hours', value: 'Mon – Fri, 9:00 AM – 5:00 PM' },
                 ].map((c, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
@@ -78,10 +80,27 @@ export default function Join() {
                     </div>
                     <div>
                       <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: 2 }}>{c.title}</p>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{c.value}</p>
+                      {c.href ? (
+                        <a
+                          href={c.href}
+                          target={c.href.startsWith('http') ? '_blank' : undefined}
+                          rel={c.href.startsWith('http') ? 'noreferrer' : undefined}
+                          style={{ fontSize: '0.9rem', color: 'var(--text-muted)', transition: 'color var(--transition)' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+                        >
+                          {c.value}
+                        </a>
+                      ) : (
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{c.value}</p>
+                      )}
                     </div>
                   </div>
                 ))}
+                <div style={{ marginTop: '0.5rem' }}>
+                  <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.65rem' }}>Follow Us</p>
+                  <PremiumSocialLinks showLabels style={{ justifyContent: 'flex-start' }} />
+                </div>
               </div>
             </div>
 
