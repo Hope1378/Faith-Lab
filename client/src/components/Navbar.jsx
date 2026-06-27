@@ -152,7 +152,7 @@ export default function Navbar() {
               gridTemplateRows: 'auto auto',
               alignItems: 'center',
               width: '100%',
-              maxWidth: '600px',
+              maxWidth: '560px',
               minWidth: 0,
               padding: '0rem 0.35rem 0rem',
               borderRadius: '999px',
@@ -176,7 +176,6 @@ export default function Navbar() {
             >
               <PremiumSocialLinks iconSize={14} style={{ gap: '0.2rem' }} />
             </div>
-
             <div
               className="menu-area"
               style={{
@@ -184,11 +183,11 @@ export default function Navbar() {
                 gridRow: '2',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                gap: '14px',
+                justifyContent: 'flex-start',
                 width: '100%',
                 flexWrap: 'wrap',
-                paddingRight: '0.15rem',
+                paddingLeft: '0.6rem',
+                paddingRight: '0.05rem',
               }}
             >
               {links.map((l) => (
@@ -375,8 +374,65 @@ export default function Navbar() {
           }
 
           .navbar .container {
-            display: flex !important;
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) auto auto !important;
             align-items: center !important;
+            gap: 0.35rem !important;
+            padding-left: 0.7rem !important;
+            padding-right: 0.7rem !important;
+          }
+
+          .navbar .container > a:first-child {
+            min-width: 0;
+            gap: 0.35rem !important;
+            font-size: 0.92rem !important;
+          }
+
+          .navbar .container > a:first-child > span {
+            min-width: 0;
+          }
+
+          .navbar .container > a:first-child > span > span:last-child {
+            display: none !important;
+          }
+
+          .nav-cta {
+            display: inline-flex !important;
+            justify-self: end;
+            transform: none !important;
+            padding: 0.28rem 0.5rem !important;
+            font-size: 0.58rem !important;
+            letter-spacing: 0.05em !important;
+            border-radius: 999px !important;
+            white-space: nowrap;
+          }
+
+          .mobile-nav {
+            top: calc(100% + 0.35rem) !important;
+            left: auto !important;
+            right: 0.4rem !important;
+            width: min(82vw, 240px) !important;
+            padding: 0.7rem !important;
+            gap: 0.45rem !important;
+            border-radius: 1rem !important;
+            align-items: stretch !important;
+            max-height: calc(100vh - 72px) !important;
+            overflow-y: auto !important;
+          }
+
+          .mobile-nav a {
+            font-size: 0.88rem !important;
+            padding: 0.65rem 0.75rem !important;
+            border-radius: 0.8rem !important;
+          }
+
+          .mobile-nav > div {
+            margin-bottom: 0 !important;
+          }
+
+          .mobile-nav .btn {
+            padding: 0.72rem 0.85rem !important;
+            font-size: 0.9rem !important;
           }
         }
       `}</style>
